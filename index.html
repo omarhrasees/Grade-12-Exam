@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>English Exam Hub | Omar AlHarasees</title>
+    <title>Full English Exam | Omar AlHarasees</title>
     <style>
         * {
             margin: 0;
@@ -23,7 +23,6 @@
             margin: 0 auto;
         }
 
-        /* top header - name centered, phone next to it */
         .title-header {
             text-align: center;
             margin-bottom: 28px;
@@ -79,7 +78,6 @@
             transform: translateY(-2px);
         }
 
-        /* tabs (calmer palette) */
         .tabs-wrap {
             display: flex;
             flex-wrap: wrap;
@@ -111,7 +109,6 @@
             transform: translateY(-1px);
         }
 
-        /* questions panel */
         .questions-panel {
             background: #ffffffea;
             border-radius: 36px;
@@ -129,6 +126,13 @@
             transition: all 0.15s;
             border-left: 8px solid #8bacbc;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        .question-instruction {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #6c8eae;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
         }
         .question-text {
             font-weight: 600;
@@ -238,7 +242,6 @@
 </head>
 <body>
 <div class="container">
-    <!-- Header: name at center, phone next to it -->
     <div class="title-header">
         <div class="name-badge">
             <span class="student-name">📘 Omar AlHarasees</span>
@@ -250,10 +253,8 @@
         </div>
     </div>
 
-    <!-- dynamic tabs -->
     <div class="tabs-wrap" id="tabContainer"></div>
 
-    <!-- questions area -->
     <div class="questions-panel">
         <div id="dynamicQuestions"></div>
         <div class="submit-area">
@@ -262,166 +263,164 @@
         </div>
         <div id="scoreDisplay" class="score-card"></div>
     </div>
-    <footer>🎯 117 exam-style questions | choose a module or "All" | after submission, correct/wrong answers shown</footer>
+    <footer>🎯 117 full questions with complete instructions | choose module or 'ALL'</footer>
 </div>
 
 <script>
     // --------------------------------------------------------------
-    // COMPLETE DATABASE: 117 questions (modules 1 to 10) — pronunciation questions removed
-    // (original Q48, Q60, Q72 removed)
+    // FULL 117 QUESTIONS with complete instruction lines
+    // pronunciation questions (original 48,60,72) removed
     // --------------------------------------------------------------
     const allQuestions = [];
 
-    function addQ(moduleId, qText, optA, optB, optC, optD, correctLetter) {
+    function addQ(moduleId, instruction, qText, optA, optB, optC, optD, correctLetter) {
         allQuestions.push({
             module: moduleId,
+            instruction: instruction,
             text: qText,
             options: [optA, optB, optC, optD],
             correct: correctLetter.toUpperCase()
         });
     }
 
-    // ================= MODULE 1 (12 questions -> keep all 12, no pronunciation in M1 originally except #12 which is stress - KEEP? Q12 was stress but acceptable. We keep as it's not purely pronunciation removal instruction: remove 48,60,72 only. So M1 intact)
-    addQ(1, "I really ______ a kick out of mystery stories.", "get", "take", "have", "make", "A");
-    addQ(1, "He never tells anyone what he's thinking. He's a bit of ______.", "a cold fish", "a dark horse", "a soft touch", "a mover and shaker", "A");
-    addQ(1, "The quality of being easily hurt is called ______.", "disposition", "vulnerability", "destiny", "trait", "B");
-    addQ(1, "She sets great store ______ good table manners.", "by", "in", "with", "at", "A");
-    addQ(1, "I joined a film club hoping to meet ______ people at school.", "like-minded", "kind-hearted", "narrow-minded", "thin-skinned", "A");
-    addQ(1, "I'm sorry, but we need to have a ______ discussion.", "spontaneous", "committed", "frank", "stable", "C");
-    addQ(1, "A: I haven't heard from you, what ______ with yourself?", "have you been doing", "did you do", "were you doing", "had you done", "A");
-    addQ(1, "Recently, I ______ five kilometres every day.", "have been running", "had run", "will have been running", "was running", "A");
-    addQ(1, "So far this month I ______ six books.", "have been reading", "had read", "have read", "was reading", "C");
-    addQ(1, "It ______ all day. I'm fed up with it.", "has been raining", "has rained", "had been raining", "was raining", "A");
-    addQ(1, "I ______ seen you for ages!", "haven't", "hadn't", "didn't have", "wasn't", "A");
-    addQ(1, "Stress in 'absent-minded' falls on?", "ab-", "minded", "both", "first syllable of first word", "B");
+    // ================= MODULE 1 (12 questions) =================
+    addQ(1, "Complete the fixed expression from the text:", "I really ______ a kick out of mystery stories.", "get", "take", "have", "make", "A");
+    addQ(1, "Complete the sentence with the correct idiom:", "He never tells anyone what he's thinking. He's a bit of ______.", "a cold fish", "a dark horse", "a soft touch", "a mover and shaker", "A");
+    addQ(1, "Complete the sentence with the correct word:", "The quality of being easily hurt is called ______.", "disposition", "vulnerability", "destiny", "trait", "B");
+    addQ(1, "Complete the fixed expression with the correct preposition:", "She sets great store ______ good table manners.", "by", "in", "with", "at", "A");
+    addQ(1, "Complete the sentence with the correct compound adjective:", "I joined a film club hoping to meet ______ people at school.", "like-minded", "kind-hearted", "narrow-minded", "thin-skinned", "A");
+    addQ(1, "Complete the sentence with the correct adjective:", "I'm sorry, but we need to have a ______ discussion about your negative attitude.", "spontaneous", "committed", "frank", "stable", "C");
+    addQ(1, "Complete the conversation with the correct form:", "A: Hi. I haven't heard from you for a while, what ______ with yourself?", "have you been doing", "did you do", "were you doing", "had you done", "A");
+    addQ(1, "Complete the sentence with the correct form of RUN:", "Recently, I ______ five kilometres every day.", "have been running", "had run", "will have been running", "was running", "A");
+    addQ(1, "Complete the sentence with the correct form of READ:", "I'm a real bookworm. So far this month I ______ six books.", "have been reading", "had read", "have read", "was reading", "C");
+    addQ(1, "Complete the sentence with the correct form:", "It ______ (rain) all day. I'm fed up with it.", "has been raining", "has rained", "had been raining", "was raining", "A");
+    addQ(1, "Complete the sentence with no more than three words:", "I ______ seen you for ages! Where have you been hiding?!", "haven't", "hadn't", "didn't have", "wasn't", "A");
+    addQ(1, "Which word is stressed in the compound adjective 'absent-minded'?", "Choose the correct option:", "ab-", "minded", "both equally", "the first syllable of the first word", "B");
 
-    // ================= MODULE 2 (12 questions -> intact) ================
-    addQ(2, "After hurting his ankle, the footballer ______ off.", "hobbled", "strode", "surged", "wobbled", "A");
-    addQ(2, "Roadworks driving motorists up the ______.", "wall", "boat", "ride", "downhill", "A");
-    addQ(2, "Reem ______ through her interview.", "sailed", "staggered", "stumbled", "parked", "A");
-    addQ(2, "Reporters suddenly ______ forward.", "shuffled", "lurched", "surged", "hobbled", "C");
-    addQ(2, "Business has been going ______.", "downstairs", "downhill", "downward", "downstreet", "B");
-    addQ(2, "Eman ______ through all test questions.", "sailed", "staggered", "stumbled", "jumped", "A");
-    addQ(2, "Rising costs caused an ______ from students.", "outcry", "outlay", "outlook", "outcome", "A");
-    addQ(2, "Never before had I experienced such heat → same as?", "I had never experienced", "I never experienced", "Never I had", "I had experienced never", "A");
-    addQ(2, "NOT ONCE ______ sorry for himself.", "Not once he felt", "Not once did he feel", "Not once he did feel", "Not once felt he", "B");
-    addQ(2, "So strict ______ that few students passed.", "was the driving examiner", "the driving examiner was", "did the examiner be", "were the examiner", "A");
-    addQ(2, "I wanted a mountain bike, not a road bike. What ______", "What I wanted was", "What did I want was", "What I wanted a", "What wanted I", "A");
-    addQ(2, "Intonation in 'what' clefts usually falls on:", "first clause", "second clause", "both", "first word", "B");
+    // ================= MODULE 2 (12 questions) =================
+    addQ(2, "Complete the sentence with the correct verb:", "After hurting his ankle, the footballer ______ off the pitch to get some help.", "hobbled", "strode", "surged", "wobbled", "A");
+    addQ(2, "Complete the sentence with the correct word from the box:", "There are new roadworks in the town centre, and it is driving motorists up the ______.", "wall", "boat", "ride", "downhill", "A");
+    addQ(2, "Complete the sentence with the correct form of the verb:", "Reem ______ through her interview to become a tour guide.", "sailed", "staggered", "stumbled", "parked", "A");
+    addQ(2, "Complete the sentence with the correct word:", "When the Prime Minister got out of the car, the reporters suddenly ______ forward and nearly knocked over the security guards.", "shuffled", "lurched", "surged", "hobbled", "C");
+    addQ(2, "Complete the idiom in bold with the correct word:", "The business has been going ______ since the new company took it over.", "downstairs", "downhill", "downward", "downstreet", "B");
+    addQ(2, "Complete the sentence with the correct form of the verb:", "Eman ______ through all the questions in the test and finished at least ten minutes before anyone else.", "sailed", "staggered", "stumbled", "jumped", "A");
+    addQ(2, "Complete the text with the correct word:", "Recently, the rising cost of university education has caused an ______ from students and parents.", "outcry", "outlay", "outlook", "outcome", "A");
+    addQ(2, "Which sentence means the same as the sentence from the text?", "'Never before had I experienced such intense heat.'", "I had never experienced such intense heat before.", "I never experienced such intense heat before.", "Never I had experienced such intense heat before.", "I had experienced never such intense heat before.", "A");
+    addQ(2, "Rewrite the sentence using inversion starting with the words in bold:", "He never felt sorry for himself. NOT ONCE ______", "Not once he felt sorry for himself.", "Not once did he feel sorry for himself.", "Not once he did feel sorry for himself.", "Not once felt he sorry for himself.", "B");
+    addQ(2, "Rewrite the sentence using inversion:", "The driving examiner was extremely strict. Very few students passed first time. So strict ______", "So strict was the driving examiner that very few students passed first time.", "So strict the driving examiner was that very few students passed first time.", "So strict did the driving examiner be that very few students passed first time.", "So strict were the driving examiner that very few students passed first time.", "A");
+    addQ(2, "Rewrite the sentence starting with the words given:", "I wanted a mountain bike, not a road bike. What ______", "What I wanted was a mountain bike, not a road bike.", "What did I want was a mountain bike, not a road bike.", "What I wanted a mountain bike, not a road bike.", "What wanted I was a mountain bike, not a road bike.", "A");
+    addQ(2, "According to the Active Pronunciation box, in cleft sentences starting with 'what,' the intonation usually falls on which part?", "Choose the correct option:", "The first clause", "The second clause", "Both clauses equally", "The first word only", "B");
 
-    // ================= MODULE 3 (12 questions) ================
-    addQ(3, "The ______ of this service is that it's eco-friendly.", "price tag", "USP", "venture", "turnover", "B");
-    addQ(3, "Free toys as a sales ______.", "gimmick", "buy", "investment", "up", "A");
-    addQ(3, "She ______ the child to clean her teeth.", "coerced", "incited", "coaxed", "pressured", "C");
-    addQ(3, "Feature that makes product different: U______", "UP", "SP", "USP", "USE", "C");
-    addQ(3, "Free cinema tickets as a sales ______.", "concept", "gimmick", "quote", "tag", "B");
-    addQ(3, "Issa ______ the bank money.", "budgets", "refunds", "owes", "withdraws", "C");
-    addQ(3, "New sales ______ to encourage people.", "gimmicks", "goods", "margins", "sprees", "A");
-    addQ(3, "Leeds Corn Exchange built → correct:", "was built", "is built", "has built", "had built", "A");
-    addQ(3, "We will prosecute all shoplifters. (Passive)", "All shoplifters will prosecute", "All will be prosecuted", "All are prosecuted", "All have been", "B");
-    addQ(3, "It is often difficult ______ (see) outside world.", "to be seen", "to see", "to have seen", "to be seeing", "B");
-    addQ(3, "When it ______, voice shopping seemed big.", "was first launched", "is launched", "has been launched", "will be launched", "A");
-    addQ(3, "Vowels dropped before which sounds?", "/s/,/t/", "/r/,/l/,/n/", "/p/,/b/", "/k/,/g/", "B");
+    // ================= MODULE 3 (12 questions) =================
+    addQ(3, "Complete the sentence with the correct word from the text:", "The ______ of this kind of service is that it is very eco-friendly.", "price tag", "USP", "venture", "turnover", "B");
+    addQ(3, "Complete the sentence with the correct compound noun:", "They're giving away free toys with children's meals as a part of a sales ______.", "gimmick", "buy", "investment", "up", "A");
+    addQ(3, "Complete the sentence with the correct word from the box:", "She ______ the child to clean her teeth.", "coerced", "incited", "coaxed", "pressured", "C");
+    addQ(3, "Complete the word with the correct letters (definition: a feature which makes a product different from the rest):", "A feature of a product or service which makes it different from the rest - U ______", "UP", "SP", "USP", "USE", "C");
+    addQ(3, "Complete the sentence with the correct word:", "They're offering free cinema tickets as a sales ______.", "concept", "gimmick", "quote", "tag", "B");
+    addQ(3, "Complete the sentence with the correct verb:", "Issa took out a loan to set up his business, so now he ______ the bank money every month.", "budgets", "refunds", "owes", "withdraws", "C");
+    addQ(3, "Complete the collocation in the sentence:", "The shops need to keep coming up with new sales ______ to encourage people to go in.", "gimmicks", "goods", "margins", "sprees", "A");
+    addQ(3, "Find and correct the mistake in this sentence:", "Leeds Corn Exchange built in 1863.", "was built", "is built", "has built", "had built", "A");
+    addQ(3, "Rewrite the sentence using the Passive:", "We will prosecute all shoplifters.", "All shoplifters will prosecute.", "All shoplifters will be prosecuted.", "All shoplifters are prosecuted.", "All shoplifters have been prosecuted.", "B");
+    addQ(3, "Complete the sentence with the correct form of the verb in brackets:", "It is often difficult ______ (see) the outside world when you're in a shopping mall.", "to be seen", "to see", "to have seen", "to be seeing", "B");
+    addQ(3, "Complete the text with the correct phrase from the box:", "When it ______, it seemed as if voice shopping might be the next big thing.", "was first launched", "is first launched", "has been first launched", "will be first launched", "A");
+    addQ(3, "According to the Active Pronunciation box, in British English, vowels tend to be left out in natural speech before which sounds? (Example given: different, interesting, necessary)", "Choose the correct option:", "/s/ and /t/", "/r/, /l/, and /n/", "/p/ and /b/", "/k/ and /g/", "B");
 
-    // ================= MODULE 4 (12 questions, Q48 removed) -> drop Q48 was in module4: "Adverb with rising stress example". So M4 will have 11 questions. We'll skip that one.
-    addQ(4, "Expected steak to be ______ but tough.", "tender", "greasy", "stodgy", "scalding", "A");
-    addQ(4, "Add a ______ of salt.", "drop", "pinch", "dab", "sprinkle", "B");
-    addQ(4, "I ______ the whole plate of sandwiches.", "wavered", "triggered", "devoured", "bombarded", "C");
-    addQ(4, "Gristly means:", "hard & chewy", "tasty", "moist", "soft", "A");
-    addQ(4, "No thanks, chips are too ______.", "tender", "scalding", "tempting", "greasy", "D");
-    addQ(4, "Couple of s______ of grapefruit.", "slabs", "slices", "segments", "scoops", "C");
-    addQ(4, "Mind his ______ at grandma's.", "drink", "manners", "sinking", "coals", "B");
-    addQ(4, "Were they ______ insecticides, rice would be contaminated.", "were they want", "were they to use", "were they using", "were they not wanting", "B");
-    addQ(4, "______ you belong to Yao tribe, you'd give a call.", "Unless", "Provided that", "Should", "Otherwise", "C");
-    addQ(4, "If cattle ______ on ecological grass, we'll get healthier milk.", "grazed", "had grazed", "graze", "were grazing", "C");
-    addQ(4, "If it ______ been for government bans, worse.", "hadn't", "hasn't", "isn't", "weren't", "A");
-    // (original Q48 removed)
+    // ================= MODULE 4 (11 questions, pronunciation Q48 removed) =================
+    addQ(4, "Complete the customer comment with the correct adjective:", "I was expecting the steak to be ______ but instead, it was tough and very chewy.", "tender", "greasy", "stodgy", "scalding", "A");
+    addQ(4, "Complete the sentence with the correct partitive:", "Always add a ______ of salt to beaten eggs.", "drop", "pinch", "dab", "sprinkle", "B");
+    addQ(4, "Complete the sentence with the correct verb:", "I was starving and ______ the whole plate of sandwiches in five minutes.", "wavered", "triggered", "devoured", "bombarded", "C");
+    addQ(4, "Choose the correct meaning for the underlined word:", "The meat is gristly.", "hard and chewy", "tasty and well-seasoned", "moist and tender", "soft and fluffy", "A");
+    addQ(4, "Complete the mini-conversation with the correct adjective:", "Amer: Would you like some more chips? Saeed: No, thanks. They're a bit too ______.", "tender", "scalding", "tempting", "greasy", "D");
+    addQ(4, "Complete the word in the review with one letter:", "A starter consisting of a couple of s______ of grapefruit with a sprinkle of sugar.", "slabs", "slices", "segments", "scoops", "C");
+    addQ(4, "Complete the sentence with the correct word:", "Tell your brother to make sure he minds his ______ while he's staying with his grandma.", "drink", "manners", "sinking", "coals", "B");
+    addQ(4, "Rewrite the sentence using inversion:", "They don't use insecticides because they don't want the rice to be contaminated with chemicals. Were they ______", "were they want the rice to be contaminated with chemicals, they would use insecticides", "were they to use insecticides, the rice would be contaminated with chemicals", "were they using insecticides, the rice will be contaminated", "were they not wanting contamination, they would use insecticides", "B");
+    addQ(4, "Complete the article with the correct word:", "______ you belong to a certain African tribe, the Yao in Mozambique, you'd give a particular call.", "Unless", "Provided that", "Should", "Otherwise", "C");
+    addQ(4, "Complete the sentence with the correct form:", "If cattle ______ on ecological grass, we'll get healthier meat and milk.", "grazed", "had grazed", "graze", "were grazing", "C");
+    addQ(4, "Complete the sentence with one word:", "If it ______ been for governments banning those really dangerous pesticides years ago, the situation would be significantly worse than it is.", "hadn't", "hasn't", "isn't", "weren't", "A");
 
-    // ================= MODULE 5 (12 questions, Q60 removed) -> Q60 was pronunciation of 'anger'. Removing it.
-    addQ(5, "I'm exhausted and really ______.", "running on empty", "getting my head down", "breezing through", "keeping on track", "A");
-    addQ(5, "With no enthusiasm (collocation):", "frantic", "futile", "half-hearted", "valiant", "C");
-    addQ(5, "Rather than cram tasks ______ the same hours.", "at", "on", "into", "for", "C");
-    addQ(5, "My mind went ______.", "empty", "blank", "lost", "clear", "B");
-    addQ(5, "Last-ditch effort to ______ people.", "reach", "avoid", "overtake", "untangle", "A");
-    addQ(5, "Can't cram ice cream ______ that bowl!", "at", "on", "into", "for", "C");
-    addQ(5, "A lot at ______.", "run", "pat", "lost", "stake", "D");
-    addQ(5, "I probably ______ have put in more effort.", "can't", "must", "ought to", "need to", "C");
-    addQ(5, "You ______ so much effort (needn't).", "needn't have made", "needn't make", "needn't be making", "needn't to make", "A");
-    addQ(5, "She ______ have failed (Aisha left early).", "can't", "must", "oughtn't", "needn't", "B");
-    addQ(5, "Students ______ bring a ruler (supposed).", "are supposed to", "were supposed to", "have supposed to", "had supposed to", "A");
-    // Q60 removed
+    // ================= MODULE 5 (11 questions, pronunciation Q60 removed) =================
+    addQ(5, "Complete the sentence with the correct form of the idiom:", "I'm exhausted and really ______.", "running on empty", "getting my head down", "breezing through", "keeping on track", "A");
+    addQ(5, "Match the collocating adjective with its definition:", "With no enthusiasm", "frantic", "futile", "half-hearted", "valiant", "C");
+    addQ(5, "Complete the discussion forum with the correct preposition:", "Rather than trying to cram too many different tasks ______ the same couple of hours, I now apply myself to one task at a time.", "at", "on", "into", "for", "C");
+    addQ(5, "Complete the idiom with the correct word:", "As soon as the exam started, my mind went ______.", "empty", "blank", "lost", "clear", "B");
+    addQ(5, "Complete the sentence with the correct phrase:", "The rescuers made a last-ditch effort to ______ the people before the building collapsed.", "reach", "avoid", "overtake", "untangle", "A");
+    addQ(5, "Complete the sentence with the correct preposition:", "I don't think you can cram another scoop of ice cream ______ that bowl!", "at", "on", "into", "for", "C");
+    addQ(5, "Complete the sentence with the correct word:", "Passing the exam tomorrow will mean I can go to the university I want, so there's a lot at ______.", "run", "pat", "lost", "stake", "D");
+    addQ(5, "Complete the sentence with the correct form:", "I probably ______ have put in a bit more effort.", "can't", "must", "ought to", "need to", "C");
+    addQ(5, "Complete the second sentence using the word in bold:", "It wasn't necessary for you to make so much effort. NEEDN'T You ______ so much effort.", "needn't have made", "needn't make", "needn't be making", "needn't to make", "A");
+    addQ(5, "Complete the sentence with the correct modal:", "Aisha left the exam room after just ten minutes. She ______ have failed.", "can't", "must", "oughtn't", "needn't", "B");
+    addQ(5, "Complete the second sentence using the word in bold:", "Students should bring a ruler to the exam. SUPPOSED Students ______ bring a ruler to the exam.", "are supposed to", "were supposed to", "have supposed to", "had supposed to", "A");
 
-    // ================= MODULE 6 (12 questions, Q72 removed) -> Q72 was about adverb+adjective rhythm. Removing.
-    addQ(6, "He simply ______ his shoulders.", "cleared", "flicked", "shrugged", "twirled", "C");
-    addQ(6, "Been ______ with offers.", "wallowing", "endeavouring", "inundated", "ascribing", "C");
-    addQ(6, "Daughters are really ______ at uni.", "thriving", "nourishing", "filtering", "infecting", "A");
-    addQ(6, "Dad furrows his ______.", "hands", "brow", "fingers", "arms", "B");
-    addQ(6, "Turned his ______ up at hummus.", "nose", "lip", "head", "back", "A");
-    addQ(6, "Arms ______ and shrugging.", "folded", "crossed", "tented", "rubbed", "B");
-    addQ(6, "Better sources of ______ (NOURISH).", "nourishment", "nourishing", "nourish", "nourished", "A");
-    addQ(6, "Regretted ______ sooner.", "not doing it", "not to do", "did not do", "not do", "A");
-    addQ(6, "Clowns ______ help reduce stays.", "are believed to be able to", "are believed that they can", "is believed to", "believe to", "A");
-    addQ(6, "Regret ______ harder.", "not working", "not to work", "didn't work", "not work", "A");
-    addQ(6, "It ______ that new antibiotics will be discovered.", "is suspected", "was suspected", "has been suspected", "suspected", "A");
-    // Q72 removed
+    // ================= MODULE 6 (11 questions, pronunciation Q72 removed) =================
+    addQ(6, "Complete the sentence with the correct form of the verb from the box:", "I asked Imad if he could help me and he simply ______ his shoulders.", "cleared", "flicked", "shrugged", "twirled", "C");
+    addQ(6, "Complete the sentence with the correct word from the parentheses:", "My dad put his old bike up for sale online and he's been ______ (flooded) with offers.", "wallowing", "endeavouring", "inundated", "ascribing", "C");
+    addQ(6, "Complete the sentence with the correct form of the word from Exercise 1:", "My daughters are both really ______ at university. They love their subjects and are making lots of new friends.", "thriving", "nourishing", "filtering", "infecting", "A");
+    addQ(6, "Match the two parts of the sentence:", "My dad always furrows his ______", "hands", "brow", "fingers", "arms", "B");
+    addQ(6, "Complete the idiom with the correct word:", "I offered Laith some hummus, but he turned his ______ up at it because he wanted a full meal.", "nose", "lip", "head", "back", "A");
+    addQ(6, "Complete the text with one word:", "Outside, one man is leaning forward and whispering... His friend is leaning back with his arms ______ and occasionally shrugging his shoulders.", "folded", "crossed", "tented", "rubbed", "B");
+    addQ(6, "Complete the sentence with the correct word formed from the word in bold:", "Fruit and nuts are much better sources of ______ than eating sweets. (NOURISH)", "nourishment", "nourishing", "nourish", "nourished", "A");
+    addQ(6, "Choose the correct structure to complete the sentence:", "The writer regretted ______ sooner.", "not doing it", "not to do", "did not do", "not do", "A");
+    addQ(6, "Complete the second sentence so that it means the same as the first:", "It is now believed that specially trained clowns can help reduce the length of children's hospital stays. Specially trained clowns ______ help reduce the length of children's hospital stays.", "are believed to be able to", "are believed that they can", "is believed to", "believe to", "A");
+    addQ(6, "Complete the sentence with the correct form of the words in brackets:", "I really regret ______ (not work) harder when I was first studying English.", "not working", "not to work", "didn't work", "not work", "A");
+    addQ(6, "Rewrite the sentence using an impersonal reporting structure:", "Scientists suspect that new antibiotics will be discovered relatively soon. It ______ that new antibiotics will be discovered relatively soon.", "is suspected", "was suspected", "has been suspected", "suspected", "A");
 
-    // ================= MODULE 7 (12 questions, intact) =============
-    addQ(7, "It's ______ like a jumpsuit.", "stuff", "sort of", "thingy", "greenish", "B");
-    addQ(7, "Soft, smooth and shiny:", "dappled", "docile", "silken", "tender", "C");
-    addQ(7, "Mosque is absolutely ______.", "overrated", "soothing", "jaw-dropping", "gimmicky", "C");
-    addQ(7, "Pale, soft colour:", "neon", "pastel", "plaid", "scarlet", "B");
-    addQ(7, "Somewhere in the ______ of 4 million.", "region", "area", "number", "amount", "A");
-    addQ(7, "Burgundy velvet ______.", "jacket", "dress", "shirt", "tie", "A");
-    addQ(7, "More ______, less obvious.", "intimidating", "ambiguous", "tangible", "commercial", "B");
-    addQ(7, "Pronoun 'which' in defining clause ______ be omitted (object).", "can", "cannot", "must", "should", "A");
-    addQ(7, "Until 1799, ______ point he began career.", "at which", "in which", "on which", "by which", "A");
-    addQ(7, "Mohanna Durra, ______ was born in Amman.", "which", "whom", "who", "whose", "C");
-    addQ(7, "(No matter what) → ______", "Whatever", "Whenever", "Wherever", "Whichever", "A");
-    addQ(7, "Stress with '-ic' falls:", "first syllable root", "syllable before suffix", "suffix", "last syllable root", "B");
+    // ================= MODULE 7 (12 questions) =================
+    addQ(7, "Complete the dialogue with the correct word from the box:", "Amber: What is she wearing? Brooke: Oh, it's ______ like a jumpsuit, I think, but with wide trousers.", "stuff", "sort of", "thingy", "greenish", "B");
+    addQ(7, "Match the adjective with the definition:", "Soft, smooth and shiny", "dappled", "docile", "silken", "tender", "C");
+    addQ(7, "Complete the sentence with the correct word from the box:", "When you see the King Hussein Bin Talal Mosque in Amman for the first time, it's absolutely ______", "overrated", "soothing", "jaw-dropping", "gimmicky", "C");
+    addQ(7, "Match the word with the definition:", "It's a pale, soft colour.", "neon", "pastel", "plaid", "scarlet", "B");
+    addQ(7, "Complete the sentence with one word:", "I think that there's somewhere in the ______ of 4 million people living in Amman.", "region", "area", "number", "amount", "A");
+    addQ(7, "Match the two parts of the sentence:", "My grandfather used to wear a burgundy, velvet ______ every evening for dinner.", "jacket", "dress", "shirt", "tie", "A");
+    addQ(7, "Complete the sentence with the correct word from the box:", "It's a bit more ______ this way, less obvious.", "intimidating", "ambiguous", "tangible", "commercial", "B");
+    addQ(7, "Choose the correct option to complete the sentence about relative clauses:", "The pronoun 'which' in a defining relative clause ______ be omitted when it refers to the object of the sentence.", "can", "cannot", "must", "should", "A");
+    addQ(7, "Complete the sentence with the correct preposition and relative pronoun:", "Constable worked in his father's corn business until 1799, ______ point he began his career as a full-time artist.", "at which", "in which", "on which", "by which", "A");
+    addQ(7, "Complete the article with the correct word from the box:", "Mohanna Durra, ______ was born in Amman in 1938, is seen as a pioneer of the Jordanian Arts movement.", "which", "whom", "who", "whose", "C");
+    addQ(7, "Replace the part in parentheses with the correct word:", "(No matter what) they say, you are definitely talented.", "Whatever", "Whenever", "Wherever", "Whichever", "A");
+    addQ(7, "According to the Active Pronunciation box, when adding the suffix '-ic' to a root word, where does the stress usually fall?", "Choose the correct option:", "on the first syllable of the root word", "on the syllable before the suffix", "on the suffix itself", "on the last syllable of the root word", "B");
 
-    // ================= MODULE 8 (12 questions) ==============
-    addQ(8, "Hold ______ making a decision.", "off on", "out", "back from", "onto", "A");
-    addQ(8, "Have to ______ to burning waste.", "come", "hold", "set", "take", "D");
-    addQ(8, "______ pain.", "excruciating", "durable", "expressive", "lucrative", "A");
-    addQ(8, "Discoveries ______ with Arab scholars.", "originated", "credited", "determined", "constructed", "A");
-    addQ(8, "Flu cause yet to be ______.", "determined", "originated", "constructed", "credited", "A");
-    addQ(8, "Marty ______ out with something interesting.", "held", "set", "came", "took", "C");
-    addQ(8, "Friends have ______ to running.", "come down hard on", "held off on", "taken to", "set about", "C");
-    addQ(8, "Maha was ______ first Jordanian.", "a", "an", "the", "o", "C");
-    addQ(8, "Influenced by what ______ others think.", "the", "an", "a", "o", "D");
-    addQ(8, "______ beauty of his painting.", "The", "A", "An", "o", "A");
-    addQ(8, "For the ______ that I appreciate everything.", "record", "way", "same", "first", "A");
-    addQ(8, "Main stress in two-part phrasal verbs:", "verb", "particle", "equal", "before verb", "B");
+    // ================= MODULE 8 (12 questions) =================
+    addQ(8, "Complete the sentence with the correct particle:", "I'm going to hold ______ making a decision until I've read all the information.", "off on", "out", "back from", "onto", "A");
+    addQ(8, "Complete the sentence with the correct form of the verb from the box:", "Laos doesn't have a formal system for collecting waste, so most people have to ______ to burning it.", "come", "hold", "set", "take", "D");
+    addQ(8, "Complete the sentence with the correct adjective from the box:", "______ pain", "excruciating", "durable", "expressive", "lucrative", "A");
+    addQ(8, "Complete the mini-conversation with the correct words:", "Adnan: Did you know that a lot of important scientific and historical discoveries ______ with Arab scholars long before we had computers?", "originated", "credited", "determined", "constructed", "A");
+    addQ(8, "Complete the headline with the correct form of the word from the box:", "CAUSE OF FLU OUTBREAK YET TO BE ______", "determined", "originated", "constructed", "credited", "A");
+    addQ(8, "Complete the sentence with the correct word:", "Marty ______ out with something interesting in class today – tell you later!", "held", "set", "came", "took", "C");
+    addQ(8, "Complete the sentence with the correct form of the phrasal verb from the box:", "My friends and I have ______ to running for an hour every day after school.", "come down hard on", "held off on", "taken to", "set about", "C");
+    addQ(8, "Complete the sentence with the correct article (the or no article – o):", "Maha Al-Bargouthi, who was ______ first Jordanian to win a gold medal at the Paralympics, was born in Amman.", "a", "an", "the", "o", "C");
+    addQ(8, "Complete the text with the correct article (a/an, the, or o):", "Human beings are social creatures... very often we are indeed influenced by what ______ others think.", "the", "an", "a", "o", "D");
+    addQ(8, "Complete the sentence with the or o:", "______ beauty of his painting is unquestionable.", "The", "A", "An", "o", "A");
+    addQ(8, "Complete the sentence with one word:", "I just want to say for the ______ that I really appreciate everything you do.", "record", "way", "same", "first", "A");
+    addQ(8, "According to the Active Pronunciation box, in two-part phrasal verbs, where is the main stress usually placed?", "Choose the correct option:", "on the verb", "on the particle", "equally on both parts", "on the word before the verb", "B");
 
-    // ================= MODULE 9 (12 questions) ==============
-    addQ(9, "Completely ______.", "baffling", "riveting", "mesmerising", "heart-stopping", "A");
-    addQ(9, "Scratching their ______.", "heads", "hands", "eyes", "fingers", "A");
-    addQ(9, "Seem ______ easy (DECEIVE).", "deceptive", "deceitful", "deceptively", "deception", "C");
-    addQ(9, "It ______ me how anyone can create ideas.", "blows", "beats", "pulls", "scratches", "B");
-    addQ(9, "Goes ______ all the rules.", "against", "over", "through", "with", "A");
-    addQ(9, "Objects are very ______.", "convincing", "unreal", "imaginative", "mysterious", "A");
-    addQ(9, "Took ages to ______ the file.", "cease", "linger", "retrieve", "rectify", "C");
-    addQ(9, "You'll ______ the term.", "hear", "be hearing", "have heard", "hearing", "A");
-    addQ(9, "They ______ at the restaurant now.", "will be", "would be", "will have been", "would have been", "A");
-    addQ(9, "I'll ______ a couple now.", "book", "be booking", "have booked", "have been booking", "A");
-    addQ(9, "He would ______ at that time.", "be driving", "have driven", "have been driving", "drive", "C");
-    addQ(9, "Omitting a sound quickly is:", "assimilation", "intrusion", "elision", "contraction", "C");
+    // ================= MODULE 9 (12 questions) =================
+    addQ(9, "Complete the sentence with the correct adjective from the box:", "Whenever I see illusions like this, it's completely ______.", "baffling", "riveting", "mesmerising", "heart-stopping", "A");
+    addQ(9, "Complete the highlighted expression with the correct word from the box:", "It was impossible to work out how the illusion worked. It had everyone scratching their ______", "heads", "hands", "eyes", "fingers", "A");
+    addQ(9, "Complete the article with the word formed from the word in bold:", "Most of us have grown so used to films... Some of the techniques seem ______ (DECEIVE) easy.", "deceptive", "deceitful", "deceptively", "deception", "C");
+    addQ(9, "Complete the sentence with the correct word from the box:", "It ______ me how anyone can come up with such creative ideas.", "blows", "beats", "pulls", "scratches", "B");
+    addQ(9, "Find and correct the mistake in this sentence:", "Well, it just goes by all the rules – you leave revising until the last moment and get a distinction.", "against", "over", "through", "with", "A");
+    addQ(9, "Complete the review with one word:", "The objects in the paintings are very ______, although of course they are really flat!", "convincing", "unreal", "imaginative", "mysterious", "A");
+    addQ(9, "Complete the sentence with the correct form of the verb from the box:", "My computer crashed yesterday and it took me ages to ______ the file I had been working on.", "cease", "linger", "retrieve", "rectify", "C");
+    addQ(9, "Choose the correct form to complete the text:", "In reviews of upcoming TV programmes... it's highly likely that you'll ______ the term 'method acting' bandied about.", "hear", "be hearing", "have heard", "hearing", "A");
+    addQ(9, "Rewrite the sentence using will or would:", "I'm sure they're at the restaurant now. They ______", "will be at the restaurant", "would be at the restaurant", "will have been at the restaurant", "would have been at the restaurant", "A");
+    addQ(9, "Complete the sentence with the correct form:", "Finally! Tickets are available... Pass me my phone and I'll ______ a couple now for the opening night.", "book", "be booking", "have booked", "have been booking", "A");
+    addQ(9, "Complete the sentence with the correct form:", "I didn't call Frank to ask for his help because he would ______ at that time.", "be driving", "have driven", "have been driving", "drive", "C");
+    addQ(9, "What is the term for omitting a sound or syllable when speaking quickly?", "Choose the correct option:", "assimilation", "intrusion", "elision", "contraction", "C");
 
-    // ================= MODULE 10 (12 questions) ==============
-    addQ(10, "Got to ______ the ropes.", "learn", "meet", "call", "sign", "A");
-    addQ(10, "Take a back ______.", "seat", "lap", "way", "fuse", "A");
-    addQ(10, "Strike the right ______.", "connectivity", "balance", "dividends", "significance", "B");
-    addQ(10, "Identify aims and ______ for them.", "call", "meet", "strive", "work", "C");
-    addQ(10, "Quickly went down: ______ down.", "popped", "called", "worked", "learned", "A");
-    addQ(10, "It is ______ that she'll get the job.", "a given", "a one-off", "upfront", "a pipe dream", "A");
-    addQ(10, "Juggle ______ demands.", "unremitting", "unacceptable", "upfront", "unrealistic", "A");
-    addQ(10, "Lucky ______ (give) money.", "to give", "to be given", "giving", "being given", "B");
-    addQ(10, "Regret to say vs regret saying: same?", "same", "different", "identical", "similar", "B");
-    addQ(10, "Managed ______ over $100.", "to save", "saving", "to saving", "for saving", "A");
-    addQ(10, "Happy ______ (offer) overtime.", "to offer", "to be offered", "offering", "being offered", "B");
-    addQ(10, "Why pauses in speech?", "only breathe", "emphasis, topic, clarify, filler", "tone only", "replace stops", "B");
+    // ================= MODULE 10 (12 questions) =================
+    addQ(10, "Complete the sentence with the correct form of the verb from the box:", "I got to ______ the ropes...", "learn", "meet", "call", "sign", "A");
+    addQ(10, "Complete the extract from the interview with the correct word from the box:", "I wasn't the type of person to take a back ______ and let others make decisions for me.", "seat", "lap", "way", "fuse", "A");
+    addQ(10, "Choose the correct word to complete the sentence:", "It can often prove difficult to strike the right ______ between work and leisure time.", "connectivity", "balance", "dividends", "significance", "B");
+    addQ(10, "Complete the text with the correct verb:", "Try to identify some aims and ambitions for the future and ______ for them.", "call", "meet", "strive", "work", "C");
+    addQ(10, "Match the part in parentheses with the correct idiom:", "Would it be OK if I (quickly went down) to the restaurant for half an hour?", "popped down", "called it a day", "worked my socks off", "learned the ropes", "A");
+    addQ(10, "Complete the sentence with the correct form of the idiom:", "There's no question about whether Zeinab will be offered the job. It is ______.", "a given", "a one-off", "upfront", "a pipe dream", "A");
+    addQ(10, "Complete the sentence with the correct word:", "Working parents often have to juggle ______ demands to keep both family and working life running smoothly.", "unremitting", "unacceptable", "upfront", "unrealistic", "A");
+    addQ(10, "Complete the sentence with the correct form of the verb in brackets:", "I was lucky ______ (give) a reasonable amount of money by my parents.", "to give", "to be given", "giving", "being given", "B");
+    addQ(10, "Decide if the pair of sentences has the same meaning:", "a) I regret to say that there is no more work for you. b) I regret saying that there is no more work for you.", "Yes, they mean the same", "No, they mean different things", "identical", "similar", "B");
+    addQ(10, "Choose the correct words to complete the text:", "When Ellie was growing up, she managed ______ over a hundred dollars.", "to save", "saving", "to saving", "for saving", "A");
+    addQ(10, "Complete the sentence with the correct passive form of the verb in brackets:", "I'm happy ______ (offer) overtime any weekday evening.", "to offer", "to be offered", "offering", "being offered", "B");
+    addQ(10, "Why do speakers insert pauses when speaking?", "According to the Active Pronunciation box:", "only to breathe", "to add emphasis, indicate a change in topic, clarify meaning, and as a mental filler", "only to indicate a change in tone", "only to replace full stops", "B");
 
-    // ========== UI STATE ==========
+    // ========== UI LOGIC ==========
     let currentModule = "all";
     let userAnswers = new Array(allQuestions.length).fill(null);
     let graded = false;
@@ -450,12 +449,13 @@
             if (graded) {
                 const isCorrect = (selectedVal && selectedVal === q.correct);
                 if (selectedVal) {
-                    feedbackHtml = `<div class="feedback ${isCorrect ? 'correct' : 'wrong'}">${isCorrect ? '✔ Correct' : `✘ Wrong. Correct: ${q.correct}`}</div>`;
+                    feedbackHtml = `<div class="feedback ${isCorrect ? 'correct' : 'wrong'}">${isCorrect ? '✔ Correct' : `✘ Wrong. Correct answer: ${q.correct}`}</div>`;
                 } else {
-                    feedbackHtml = `<div class="feedback wrong">⚠ Not answered (correct: ${q.correct})</div>`;
+                    feedbackHtml = `<div class="feedback wrong">⚠ Not answered (correct answer: ${q.correct})</div>`;
                 }
             }
             html += `<div class="question-card">
+                        <div class="question-instruction">${q.instruction}</div>
                         <div class="question-text">${idxLocal+1}. ${q.text}</div>
                         <div class="options">`;
             const letters = ["A","B","C","D"];
@@ -534,4 +534,4 @@
     renderQuestions();
 </script>
 </body>
-</html> 
+</html>
