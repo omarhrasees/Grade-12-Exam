@@ -1,0 +1,537 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>English Exam Hub | Omar AlHarasees</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+        }
+
+        body {
+            background: #eef2f5;
+            min-height: 100vh;
+            padding: 30px 20px 60px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* top header - name centered, phone next to it */
+        .title-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .name-badge {
+            background: #ffffffdd;
+            backdrop-filter: blur(4px);
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: baseline;
+            gap: 20px;
+            padding: 14px 32px;
+            border-radius: 60px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+            border: 1px solid #cbdbe0;
+        }
+        .student-name {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #2c4b6c;
+            letter-spacing: -0.3px;
+        }
+        .phone-number {
+            font-size: 1.1rem;
+            background: #eef3fc;
+            padding: 6px 18px;
+            border-radius: 40px;
+            color: #2c6e6e;
+            font-weight: 500;
+            border: 1px solid #bfd9e8;
+        }
+        .social-links {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            text-decoration: none;
+            background: #ffffffcc;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #3d6b8c;
+            font-weight: 500;
+            transition: 0.2s;
+            border: 1px solid #cbdbe0;
+        }
+        .social-links a:hover {
+            background: #e6f0f9;
+            transform: translateY(-2px);
+        }
+
+        /* tabs (calmer palette) */
+        .tabs-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+        .tab-btn {
+            background: #eef2f8;
+            border: none;
+            padding: 10px 26px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #3f5e7c;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #cbdbe2;
+        }
+        .tab-btn.active {
+            background: #6c8eae;
+            color: white;
+            border-color: #5a7d9c;
+            box-shadow: 0 4px 8px rgba(108,142,174,0.2);
+        }
+        .tab-btn:hover:not(.active) {
+            background: #e1e9f1;
+            transform: translateY(-1px);
+        }
+
+        /* questions panel */
+        .questions-panel {
+            background: #ffffffea;
+            border-radius: 36px;
+            padding: 30px 28px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border: 1px solid #dfe7ef;
+        }
+
+        .question-card {
+            background: #fefefe;
+            border-radius: 28px;
+            margin-bottom: 28px;
+            padding: 20px 26px;
+            transition: all 0.15s;
+            border-left: 8px solid #8bacbc;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #2c3e4e;
+            margin-bottom: 18px;
+            line-height: 1.45;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin: 12px 0 12px;
+        }
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f6fafd;
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.1s;
+            border: 1px solid #dce5ed;
+        }
+        .option-label.selected {
+            background: #e4edf5;
+            border-color: #8bacbc;
+        }
+        input[type="radio"] {
+            accent-color: #6c8eae;
+            width: 17px;
+            height: 17px;
+        }
+        .feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+        .feedback.correct {
+            background: #e0f0e6;
+            color: #2b6e4e;
+        }
+        .feedback.wrong {
+            background: #ffe6e0;
+            color: #bc5a3c;
+        }
+
+        .submit-area {
+            text-align: center;
+            margin: 20px 0 15px;
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .submit-btn {
+            background: #6c8eae;
+            border: none;
+            padding: 12px 38px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 60px;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .submit-btn:hover {
+            background: #537b9c;
+            transform: scale(1.01);
+        }
+        .reset-btn {
+            background: #cbdbe2;
+            color: #3f5e7c;
+            border: none;
+            padding: 12px 32px;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+        }
+        .score-card {
+            background: #eef3f8;
+            border-radius: 38px;
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c5a6e;
+            margin-top: 22px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 0.75rem;
+            color: #859eae;
+        }
+        @media (max-width: 680px) {
+            .question-card { padding: 16px; }
+            .options { gap: 10px; }
+            .tab-btn { padding: 6px 18px; font-size: 0.8rem; }
+            .student-name { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Header: name at center, phone next to it -->
+    <div class="title-header">
+        <div class="name-badge">
+            <span class="student-name">📘 Omar AlHarasees</span>
+            <span class="phone-number">📞 0775689924</span>
+        </div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/uahomar" target="_blank">facebook.com/uahomar</a>
+            <a href="https://www.instagram.com/uah_omar" target="_blank">instagram.com/uah_omar</a>
+        </div>
+    </div>
+
+    <!-- dynamic tabs -->
+    <div class="tabs-wrap" id="tabContainer"></div>
+
+    <!-- questions area -->
+    <div class="questions-panel">
+        <div id="dynamicQuestions"></div>
+        <div class="submit-area">
+            <button class="submit-btn" id="submitExam">✅ SUBMIT & GRADE</button>
+            <button class="reset-btn" id="resetExam">⟳ Clear all answers</button>
+        </div>
+        <div id="scoreDisplay" class="score-card"></div>
+    </div>
+    <footer>🎯 117 exam-style questions | choose a module or "All" | after submission, correct/wrong answers shown</footer>
+</div>
+
+<script>
+    // --------------------------------------------------------------
+    // COMPLETE DATABASE: 117 questions (modules 1 to 10) — pronunciation questions removed
+    // (original Q48, Q60, Q72 removed)
+    // --------------------------------------------------------------
+    const allQuestions = [];
+
+    function addQ(moduleId, qText, optA, optB, optC, optD, correctLetter) {
+        allQuestions.push({
+            module: moduleId,
+            text: qText,
+            options: [optA, optB, optC, optD],
+            correct: correctLetter.toUpperCase()
+        });
+    }
+
+    // ================= MODULE 1 (12 questions -> keep all 12, no pronunciation in M1 originally except #12 which is stress - KEEP? Q12 was stress but acceptable. We keep as it's not purely pronunciation removal instruction: remove 48,60,72 only. So M1 intact)
+    addQ(1, "I really ______ a kick out of mystery stories.", "get", "take", "have", "make", "A");
+    addQ(1, "He never tells anyone what he's thinking. He's a bit of ______.", "a cold fish", "a dark horse", "a soft touch", "a mover and shaker", "A");
+    addQ(1, "The quality of being easily hurt is called ______.", "disposition", "vulnerability", "destiny", "trait", "B");
+    addQ(1, "She sets great store ______ good table manners.", "by", "in", "with", "at", "A");
+    addQ(1, "I joined a film club hoping to meet ______ people at school.", "like-minded", "kind-hearted", "narrow-minded", "thin-skinned", "A");
+    addQ(1, "I'm sorry, but we need to have a ______ discussion.", "spontaneous", "committed", "frank", "stable", "C");
+    addQ(1, "A: I haven't heard from you, what ______ with yourself?", "have you been doing", "did you do", "were you doing", "had you done", "A");
+    addQ(1, "Recently, I ______ five kilometres every day.", "have been running", "had run", "will have been running", "was running", "A");
+    addQ(1, "So far this month I ______ six books.", "have been reading", "had read", "have read", "was reading", "C");
+    addQ(1, "It ______ all day. I'm fed up with it.", "has been raining", "has rained", "had been raining", "was raining", "A");
+    addQ(1, "I ______ seen you for ages!", "haven't", "hadn't", "didn't have", "wasn't", "A");
+    addQ(1, "Stress in 'absent-minded' falls on?", "ab-", "minded", "both", "first syllable of first word", "B");
+
+    // ================= MODULE 2 (12 questions -> intact) ================
+    addQ(2, "After hurting his ankle, the footballer ______ off.", "hobbled", "strode", "surged", "wobbled", "A");
+    addQ(2, "Roadworks driving motorists up the ______.", "wall", "boat", "ride", "downhill", "A");
+    addQ(2, "Reem ______ through her interview.", "sailed", "staggered", "stumbled", "parked", "A");
+    addQ(2, "Reporters suddenly ______ forward.", "shuffled", "lurched", "surged", "hobbled", "C");
+    addQ(2, "Business has been going ______.", "downstairs", "downhill", "downward", "downstreet", "B");
+    addQ(2, "Eman ______ through all test questions.", "sailed", "staggered", "stumbled", "jumped", "A");
+    addQ(2, "Rising costs caused an ______ from students.", "outcry", "outlay", "outlook", "outcome", "A");
+    addQ(2, "Never before had I experienced such heat → same as?", "I had never experienced", "I never experienced", "Never I had", "I had experienced never", "A");
+    addQ(2, "NOT ONCE ______ sorry for himself.", "Not once he felt", "Not once did he feel", "Not once he did feel", "Not once felt he", "B");
+    addQ(2, "So strict ______ that few students passed.", "was the driving examiner", "the driving examiner was", "did the examiner be", "were the examiner", "A");
+    addQ(2, "I wanted a mountain bike, not a road bike. What ______", "What I wanted was", "What did I want was", "What I wanted a", "What wanted I", "A");
+    addQ(2, "Intonation in 'what' clefts usually falls on:", "first clause", "second clause", "both", "first word", "B");
+
+    // ================= MODULE 3 (12 questions) ================
+    addQ(3, "The ______ of this service is that it's eco-friendly.", "price tag", "USP", "venture", "turnover", "B");
+    addQ(3, "Free toys as a sales ______.", "gimmick", "buy", "investment", "up", "A");
+    addQ(3, "She ______ the child to clean her teeth.", "coerced", "incited", "coaxed", "pressured", "C");
+    addQ(3, "Feature that makes product different: U______", "UP", "SP", "USP", "USE", "C");
+    addQ(3, "Free cinema tickets as a sales ______.", "concept", "gimmick", "quote", "tag", "B");
+    addQ(3, "Issa ______ the bank money.", "budgets", "refunds", "owes", "withdraws", "C");
+    addQ(3, "New sales ______ to encourage people.", "gimmicks", "goods", "margins", "sprees", "A");
+    addQ(3, "Leeds Corn Exchange built → correct:", "was built", "is built", "has built", "had built", "A");
+    addQ(3, "We will prosecute all shoplifters. (Passive)", "All shoplifters will prosecute", "All will be prosecuted", "All are prosecuted", "All have been", "B");
+    addQ(3, "It is often difficult ______ (see) outside world.", "to be seen", "to see", "to have seen", "to be seeing", "B");
+    addQ(3, "When it ______, voice shopping seemed big.", "was first launched", "is launched", "has been launched", "will be launched", "A");
+    addQ(3, "Vowels dropped before which sounds?", "/s/,/t/", "/r/,/l/,/n/", "/p/,/b/", "/k/,/g/", "B");
+
+    // ================= MODULE 4 (12 questions, Q48 removed) -> drop Q48 was in module4: "Adverb with rising stress example". So M4 will have 11 questions. We'll skip that one.
+    addQ(4, "Expected steak to be ______ but tough.", "tender", "greasy", "stodgy", "scalding", "A");
+    addQ(4, "Add a ______ of salt.", "drop", "pinch", "dab", "sprinkle", "B");
+    addQ(4, "I ______ the whole plate of sandwiches.", "wavered", "triggered", "devoured", "bombarded", "C");
+    addQ(4, "Gristly means:", "hard & chewy", "tasty", "moist", "soft", "A");
+    addQ(4, "No thanks, chips are too ______.", "tender", "scalding", "tempting", "greasy", "D");
+    addQ(4, "Couple of s______ of grapefruit.", "slabs", "slices", "segments", "scoops", "C");
+    addQ(4, "Mind his ______ at grandma's.", "drink", "manners", "sinking", "coals", "B");
+    addQ(4, "Were they ______ insecticides, rice would be contaminated.", "were they want", "were they to use", "were they using", "were they not wanting", "B");
+    addQ(4, "______ you belong to Yao tribe, you'd give a call.", "Unless", "Provided that", "Should", "Otherwise", "C");
+    addQ(4, "If cattle ______ on ecological grass, we'll get healthier milk.", "grazed", "had grazed", "graze", "were grazing", "C");
+    addQ(4, "If it ______ been for government bans, worse.", "hadn't", "hasn't", "isn't", "weren't", "A");
+    // (original Q48 removed)
+
+    // ================= MODULE 5 (12 questions, Q60 removed) -> Q60 was pronunciation of 'anger'. Removing it.
+    addQ(5, "I'm exhausted and really ______.", "running on empty", "getting my head down", "breezing through", "keeping on track", "A");
+    addQ(5, "With no enthusiasm (collocation):", "frantic", "futile", "half-hearted", "valiant", "C");
+    addQ(5, "Rather than cram tasks ______ the same hours.", "at", "on", "into", "for", "C");
+    addQ(5, "My mind went ______.", "empty", "blank", "lost", "clear", "B");
+    addQ(5, "Last-ditch effort to ______ people.", "reach", "avoid", "overtake", "untangle", "A");
+    addQ(5, "Can't cram ice cream ______ that bowl!", "at", "on", "into", "for", "C");
+    addQ(5, "A lot at ______.", "run", "pat", "lost", "stake", "D");
+    addQ(5, "I probably ______ have put in more effort.", "can't", "must", "ought to", "need to", "C");
+    addQ(5, "You ______ so much effort (needn't).", "needn't have made", "needn't make", "needn't be making", "needn't to make", "A");
+    addQ(5, "She ______ have failed (Aisha left early).", "can't", "must", "oughtn't", "needn't", "B");
+    addQ(5, "Students ______ bring a ruler (supposed).", "are supposed to", "were supposed to", "have supposed to", "had supposed to", "A");
+    // Q60 removed
+
+    // ================= MODULE 6 (12 questions, Q72 removed) -> Q72 was about adverb+adjective rhythm. Removing.
+    addQ(6, "He simply ______ his shoulders.", "cleared", "flicked", "shrugged", "twirled", "C");
+    addQ(6, "Been ______ with offers.", "wallowing", "endeavouring", "inundated", "ascribing", "C");
+    addQ(6, "Daughters are really ______ at uni.", "thriving", "nourishing", "filtering", "infecting", "A");
+    addQ(6, "Dad furrows his ______.", "hands", "brow", "fingers", "arms", "B");
+    addQ(6, "Turned his ______ up at hummus.", "nose", "lip", "head", "back", "A");
+    addQ(6, "Arms ______ and shrugging.", "folded", "crossed", "tented", "rubbed", "B");
+    addQ(6, "Better sources of ______ (NOURISH).", "nourishment", "nourishing", "nourish", "nourished", "A");
+    addQ(6, "Regretted ______ sooner.", "not doing it", "not to do", "did not do", "not do", "A");
+    addQ(6, "Clowns ______ help reduce stays.", "are believed to be able to", "are believed that they can", "is believed to", "believe to", "A");
+    addQ(6, "Regret ______ harder.", "not working", "not to work", "didn't work", "not work", "A");
+    addQ(6, "It ______ that new antibiotics will be discovered.", "is suspected", "was suspected", "has been suspected", "suspected", "A");
+    // Q72 removed
+
+    // ================= MODULE 7 (12 questions, intact) =============
+    addQ(7, "It's ______ like a jumpsuit.", "stuff", "sort of", "thingy", "greenish", "B");
+    addQ(7, "Soft, smooth and shiny:", "dappled", "docile", "silken", "tender", "C");
+    addQ(7, "Mosque is absolutely ______.", "overrated", "soothing", "jaw-dropping", "gimmicky", "C");
+    addQ(7, "Pale, soft colour:", "neon", "pastel", "plaid", "scarlet", "B");
+    addQ(7, "Somewhere in the ______ of 4 million.", "region", "area", "number", "amount", "A");
+    addQ(7, "Burgundy velvet ______.", "jacket", "dress", "shirt", "tie", "A");
+    addQ(7, "More ______, less obvious.", "intimidating", "ambiguous", "tangible", "commercial", "B");
+    addQ(7, "Pronoun 'which' in defining clause ______ be omitted (object).", "can", "cannot", "must", "should", "A");
+    addQ(7, "Until 1799, ______ point he began career.", "at which", "in which", "on which", "by which", "A");
+    addQ(7, "Mohanna Durra, ______ was born in Amman.", "which", "whom", "who", "whose", "C");
+    addQ(7, "(No matter what) → ______", "Whatever", "Whenever", "Wherever", "Whichever", "A");
+    addQ(7, "Stress with '-ic' falls:", "first syllable root", "syllable before suffix", "suffix", "last syllable root", "B");
+
+    // ================= MODULE 8 (12 questions) ==============
+    addQ(8, "Hold ______ making a decision.", "off on", "out", "back from", "onto", "A");
+    addQ(8, "Have to ______ to burning waste.", "come", "hold", "set", "take", "D");
+    addQ(8, "______ pain.", "excruciating", "durable", "expressive", "lucrative", "A");
+    addQ(8, "Discoveries ______ with Arab scholars.", "originated", "credited", "determined", "constructed", "A");
+    addQ(8, "Flu cause yet to be ______.", "determined", "originated", "constructed", "credited", "A");
+    addQ(8, "Marty ______ out with something interesting.", "held", "set", "came", "took", "C");
+    addQ(8, "Friends have ______ to running.", "come down hard on", "held off on", "taken to", "set about", "C");
+    addQ(8, "Maha was ______ first Jordanian.", "a", "an", "the", "o", "C");
+    addQ(8, "Influenced by what ______ others think.", "the", "an", "a", "o", "D");
+    addQ(8, "______ beauty of his painting.", "The", "A", "An", "o", "A");
+    addQ(8, "For the ______ that I appreciate everything.", "record", "way", "same", "first", "A");
+    addQ(8, "Main stress in two-part phrasal verbs:", "verb", "particle", "equal", "before verb", "B");
+
+    // ================= MODULE 9 (12 questions) ==============
+    addQ(9, "Completely ______.", "baffling", "riveting", "mesmerising", "heart-stopping", "A");
+    addQ(9, "Scratching their ______.", "heads", "hands", "eyes", "fingers", "A");
+    addQ(9, "Seem ______ easy (DECEIVE).", "deceptive", "deceitful", "deceptively", "deception", "C");
+    addQ(9, "It ______ me how anyone can create ideas.", "blows", "beats", "pulls", "scratches", "B");
+    addQ(9, "Goes ______ all the rules.", "against", "over", "through", "with", "A");
+    addQ(9, "Objects are very ______.", "convincing", "unreal", "imaginative", "mysterious", "A");
+    addQ(9, "Took ages to ______ the file.", "cease", "linger", "retrieve", "rectify", "C");
+    addQ(9, "You'll ______ the term.", "hear", "be hearing", "have heard", "hearing", "A");
+    addQ(9, "They ______ at the restaurant now.", "will be", "would be", "will have been", "would have been", "A");
+    addQ(9, "I'll ______ a couple now.", "book", "be booking", "have booked", "have been booking", "A");
+    addQ(9, "He would ______ at that time.", "be driving", "have driven", "have been driving", "drive", "C");
+    addQ(9, "Omitting a sound quickly is:", "assimilation", "intrusion", "elision", "contraction", "C");
+
+    // ================= MODULE 10 (12 questions) ==============
+    addQ(10, "Got to ______ the ropes.", "learn", "meet", "call", "sign", "A");
+    addQ(10, "Take a back ______.", "seat", "lap", "way", "fuse", "A");
+    addQ(10, "Strike the right ______.", "connectivity", "balance", "dividends", "significance", "B");
+    addQ(10, "Identify aims and ______ for them.", "call", "meet", "strive", "work", "C");
+    addQ(10, "Quickly went down: ______ down.", "popped", "called", "worked", "learned", "A");
+    addQ(10, "It is ______ that she'll get the job.", "a given", "a one-off", "upfront", "a pipe dream", "A");
+    addQ(10, "Juggle ______ demands.", "unremitting", "unacceptable", "upfront", "unrealistic", "A");
+    addQ(10, "Lucky ______ (give) money.", "to give", "to be given", "giving", "being given", "B");
+    addQ(10, "Regret to say vs regret saying: same?", "same", "different", "identical", "similar", "B");
+    addQ(10, "Managed ______ over $100.", "to save", "saving", "to saving", "for saving", "A");
+    addQ(10, "Happy ______ (offer) overtime.", "to offer", "to be offered", "offering", "being offered", "B");
+    addQ(10, "Why pauses in speech?", "only breathe", "emphasis, topic, clarify, filler", "tone only", "replace stops", "B");
+
+    // ========== UI STATE ==========
+    let currentModule = "all";
+    let userAnswers = new Array(allQuestions.length).fill(null);
+    let graded = false;
+    let currentQuestionsList = [];
+
+    function renderQuestions() {
+        const container = document.getElementById("dynamicQuestions");
+        let questionsToShow = [];
+        if (currentModule === "all") {
+            questionsToShow = allQuestions.map((q, idx) => ({ ...q, originalIndex: idx }));
+        } else {
+            questionsToShow = allQuestions
+                .map((q, idx) => ({ ...q, originalIndex: idx }))
+                .filter(q => q.module === currentModule);
+        }
+        currentQuestionsList = questionsToShow;
+        if (!questionsToShow.length) {
+            container.innerHTML = "<div style='padding:30px;text-align:center'>✨ No questions in this module</div>";
+            return;
+        }
+        let html = "";
+        questionsToShow.forEach((q, idxLocal) => {
+            const globalIdx = q.originalIndex;
+            const selectedVal = userAnswers[globalIdx];
+            let feedbackHtml = "";
+            if (graded) {
+                const isCorrect = (selectedVal && selectedVal === q.correct);
+                if (selectedVal) {
+                    feedbackHtml = `<div class="feedback ${isCorrect ? 'correct' : 'wrong'}">${isCorrect ? '✔ Correct' : `✘ Wrong. Correct: ${q.correct}`}</div>`;
+                } else {
+                    feedbackHtml = `<div class="feedback wrong">⚠ Not answered (correct: ${q.correct})</div>`;
+                }
+            }
+            html += `<div class="question-card">
+                        <div class="question-text">${idxLocal+1}. ${q.text}</div>
+                        <div class="options">`;
+            const letters = ["A","B","C","D"];
+            q.options.forEach((opt, optIdx) => {
+                const letter = letters[optIdx];
+                const checkedAttr = (selectedVal === letter) ? "checked" : "";
+                html += `<label class="option-label ${selectedVal === letter ? 'selected' : ''}">
+                            <input type="radio" name="q${globalIdx}" value="${letter}" ${checkedAttr} onchange="selectAnswer(${globalIdx}, '${letter}')">
+                            <span><strong>${letter}.</strong> ${opt}</span>
+                         </label>`;
+            });
+            html += `</div>${feedbackHtml}</div>`;
+        });
+        container.innerHTML = html;
+        const scoreDiv = document.getElementById("scoreDisplay");
+        if (graded) {
+            let correctCount = 0;
+            for (let q of currentQuestionsList) {
+                const ans = userAnswers[q.originalIndex];
+                if (ans && ans === q.correct) correctCount++;
+            }
+            scoreDiv.innerHTML = `🎯 Score: ${correctCount} / ${currentQuestionsList.length} (${Math.round((correctCount/currentQuestionsList.length)*100)}%) ${currentModule !== "all" ? `| Module ${currentModule} completed` : "| All modules"}`;
+        } else {
+            scoreDiv.innerHTML = "📝 Choose your answers and click SUBMIT to see detailed results.";
+        }
+    }
+
+    window.selectAnswer = function(globalIdx, letter) {
+        userAnswers[globalIdx] = letter;
+        if (graded) {
+            graded = false;
+            document.getElementById("scoreDisplay").innerHTML = "📝 Answers changed. Submit again to refresh score.";
+        }
+        renderQuestions();
+    };
+
+    function submitExam() {
+        graded = true;
+        renderQuestions();
+    }
+
+    function resetExam() {
+        userAnswers.fill(null);
+        graded = false;
+        renderQuestions();
+    }
+
+    function buildTabs() {
+        const tabsDiv = document.getElementById("tabContainer");
+        const modules = [
+            { id: "all", label: "📋 ALL 117" },
+            { id: 1, label: "Module 1" }, { id: 2, label: "Module 2" }, { id: 3, label: "Module 3" },
+            { id: 4, label: "Module 4" }, { id: 5, label: "Module 5" }, { id: 6, label: "Module 6" },
+            { id: 7, label: "Module 7" }, { id: 8, label: "Module 8" }, { id: 9, label: "Module 9" }, { id: 10, label: "Module 10" }
+        ];
+        tabsDiv.innerHTML = "";
+        modules.forEach(mod => {
+            const btn = document.createElement("button");
+            btn.className = "tab-btn";
+            if ((currentModule === "all" && mod.id === "all") || (currentModule === mod.id)) btn.classList.add("active");
+            btn.innerText = mod.label;
+            btn.onclick = () => {
+                currentModule = mod.id;
+                graded = false;
+                renderQuestions();
+                document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+            };
+            tabsDiv.appendChild(btn);
+        });
+    }
+
+    document.getElementById("submitExam").onclick = submitExam;
+    document.getElementById("resetExam").onclick = resetExam;
+    buildTabs();
+    renderQuestions();
+</script>
+</body>
+</html> 
