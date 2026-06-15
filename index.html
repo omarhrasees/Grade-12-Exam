@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Full English Exam | Omar AlHarasees</title>
+    <title>Complete English Exam | Omar AlHarasees</title>
     <style>
         * {
             margin: 0;
@@ -11,18 +11,15 @@
             box-sizing: border-box;
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
         }
-
         body {
             background: #eef2f5;
             min-height: 100vh;
             padding: 30px 20px 60px;
         }
-
         .container {
             max-width: 1280px;
             margin: 0 auto;
         }
-
         .title-header {
             text-align: center;
             margin-bottom: 28px;
@@ -58,10 +55,7 @@
             border: 1px solid #bfd9e8;
             text-decoration: none;
         }
-        .contact-item img {
-            width: 20px;
-            height: 20px;
-        }
+        .contact-item img { width: 20px; height: 20px; }
         .social-links {
             margin-top: 12px;
             display: flex;
@@ -83,15 +77,8 @@
             align-items: center;
             gap: 8px;
         }
-        .social-links a:hover {
-            background: #e6f0f9;
-            transform: translateY(-2px);
-        }
-        .social-links img {
-            width: 18px;
-            height: 18px;
-        }
-
+        .social-links a:hover { background: #e6f0f9; transform: translateY(-2px); }
+        .social-links img { width: 18px; height: 18px; }
         .tabs-wrap {
             display: flex;
             flex-wrap: wrap;
@@ -122,7 +109,6 @@
             background: #e1e9f1;
             transform: translateY(-1px);
         }
-
         .questions-panel {
             background: #ffffffea;
             border-radius: 36px;
@@ -131,7 +117,6 @@
             margin-bottom: 30px;
             border: 1px solid #dfe7ef;
         }
-
         .question-card {
             background: #fefefe;
             border-radius: 28px;
@@ -148,9 +133,6 @@
             margin-bottom: 18px;
             line-height: 1.45;
             white-space: pre-line;
-        }
-        .question-text strong {
-            color: #6c8eae;
         }
         .options {
             display: flex;
@@ -169,16 +151,8 @@
             transition: 0.1s;
             border: 1px solid #dce5ed;
         }
-        .option-label.selected {
-            background: #e4edf5;
-            border-color: #8bacbc;
-        }
-        input[type="radio"] {
-            accent-color: #6c8eae;
-            width: 17px;
-            height: 17px;
-            cursor: pointer;
-        }
+        .option-label.selected { background: #e4edf5; border-color: #8bacbc; }
+        input[type="radio"] { accent-color: #6c8eae; width: 17px; height: 17px; cursor: pointer; }
         .feedback {
             margin-top: 12px;
             font-size: 0.85rem;
@@ -186,15 +160,8 @@
             border-radius: 30px;
             display: inline-block;
         }
-        .feedback.correct {
-            background: #e0f0e6;
-            color: #2b6e4e;
-        }
-        .feedback.wrong {
-            background: #ffe6e0;
-            color: #bc5a3c;
-        }
-
+        .feedback.correct { background: #e0f0e6; color: #2b6e4e; }
+        .feedback.wrong { background: #ffe6e0; color: #bc5a3c; }
         .pagination {
             display: flex;
             justify-content: center;
@@ -213,22 +180,9 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .page-btn:hover {
-            background: #537b9c;
-            transform: scale(1.02);
-        }
-        .page-btn:disabled {
-            background: #cbdbe2;
-            cursor: not-allowed;
-            transform: none;
-        }
-        .page-info {
-            text-align: center;
-            margin: 10px 0;
-            font-weight: 500;
-            color: #5a7d9c;
-        }
-
+        .page-btn:hover { background: #537b9c; transform: scale(1.02); }
+        .page-btn:disabled { background: #cbdbe2; cursor: not-allowed; transform: none; }
+        .page-info { text-align: center; margin: 10px 0; font-weight: 500; color: #5a7d9c; }
         .submit-area {
             text-align: center;
             margin: 20px 0 15px;
@@ -247,12 +201,8 @@
             color: white;
             cursor: pointer;
             transition: 0.2s;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
-        .submit-btn:hover {
-            background: #537b9c;
-            transform: scale(1.01);
-        }
+        .submit-btn:hover { background: #537b9c; transform: scale(1.01); }
         .reset-btn {
             background: #cbdbe2;
             color: #3f5e7c;
@@ -272,13 +222,7 @@
             color: #2c5a6e;
             margin-top: 22px;
         }
-        footer {
-            text-align: center;
-            margin-top: 28px;
-            font-size: 0.75rem;
-            color: #859eae;
-        }
-
+        footer { text-align: center; margin-top: 28px; font-size: 0.75rem; color: #859eae; }
         .modal {
             display: none;
             position: fixed;
@@ -302,22 +246,9 @@
             box-shadow: 0 25px 45px rgba(0,0,0,0.2);
             animation: fadeInUp 0.3s ease;
         }
-        .modal-content h2 {
-            color: #2c4b6c;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-        .modal-score {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #6c8eae;
-            margin: 20px 0;
-        }
-        .modal-message {
-            font-size: 1.1rem;
-            color: #3f5e7c;
-            margin-bottom: 25px;
-        }
+        .modal-content h2 { color: #2c4b6c; margin-bottom: 20px; font-size: 1.8rem; }
+        .modal-score { font-size: 3rem; font-weight: 800; color: #6c8eae; margin: 20px 0; }
+        .modal-message { font-size: 1.1rem; color: #3f5e7c; margin-bottom: 25px; }
         .modal-close {
             background: #6c8eae;
             border: none;
@@ -348,24 +279,15 @@
         <div class="name-badge">
             <span class="student-name">📘 Omar AlHarasees</span>
             <a href="https://wa.me/962775689924" target="_blank" class="contact-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2325D366'%3E%3Cpath d='M12.032 2.004c-5.514 0-9.996 4.482-9.996 9.996 0 1.76.457 3.475 1.324 4.985L2 22l5.107-1.358a9.96 9.96 0 0 0 4.77 1.214c5.514 0 9.996-4.482 9.996-9.996s-4.482-9.996-9.996-9.996zm0 18.396c-1.617 0-3.19-.433-4.543-1.25l-.326-.193-3.032.806.808-2.95-.211-.337a8.26 8.26 0 0 1-1.265-4.425c0-4.554 3.706-8.26 8.26-8.26s8.26 3.706 8.26 8.26-3.706 8.26-8.26 8.26zm4.53-6.188c-.248-.124-1.47-.725-1.698-.808-.227-.082-.392-.124-.558.124-.166.248-.642.808-.787.974-.145.166-.29.186-.538.062s-1.05-.387-2-1.235c-.74-.66-1.24-1.474-1.386-1.724-.145-.248-.015-.382.109-.506.111-.111.248-.29.372-.435.124-.145.166-.248.248-.414.083-.165.042-.31-.02-.434-.063-.124-.558-1.344-.764-1.84-.2-.482-.403-.418-.558-.426-.145-.008-.31-.01-.476-.01-.166 0-.435.062-.663.31-.227.248-.868.848-.868 2.07s.89 2.402 1.013 2.568c.124.166 1.75 2.672 4.24 3.745.592.255 1.055.408 1.415.523.595.19 1.136.163 1.564.099.477-.07 1.47-.6 1.677-1.18.207-.58.207-1.077.145-1.18-.062-.104-.228-.166-.476-.29z'/%3E%3C/svg%3E" alt="WhatsApp">
-                0775689924
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2325D366'%3E%3Cpath d='M12.032 2.004c-5.514 0-9.996 4.482-9.996 9.996 0 1.76.457 3.475 1.324 4.985L2 22l5.107-1.358a9.96 9.96 0 0 0 4.77 1.214c5.514 0 9.996-4.482 9.996-9.996s-4.482-9.996-9.996-9.996zm0 18.396c-1.617 0-3.19-.433-4.543-1.25l-.326-.193-3.032.806.808-2.95-.211-.337a8.26 8.26 0 0 1-1.265-4.425c0-4.554 3.706-8.26 8.26-8.26s8.26 3.706 8.26 8.26-3.706 8.26-8.26 8.26zm4.53-6.188c-.248-.124-1.47-.725-1.698-.808-.227-.082-.392-.124-.558.124-.166.248-.642.808-.787.974-.145.166-.29.186-.538.062s-1.05-.387-2-1.235c-.74-.66-1.24-1.474-1.386-1.724-.145-.248-.015-.382.109-.506.111-.111.248-.29.372-.435.124-.145.166-.248.248-.414.083-.165.042-.31-.02-.434-.063-.124-.558-1.344-.764-1.84-.2-.482-.403-.418-.558-.426-.145-.008-.31-.01-.476-.01-.166 0-.435.062-.663.31-.227.248-.868.848-.868 2.07s.89 2.402 1.013 2.568c.124.166 1.75 2.672 4.24 3.745.592.255 1.055.408 1.415.523.595.19 1.136.163 1.564.099.477-.07 1.47-.6 1.677-1.18.207-.58.207-1.077.145-1.18-.062-.104-.228-.166-.476-.29z'/%3E%3C/svg%3E" alt="WhatsApp"> 0775689924
             </a>
         </div>
         <div class="social-links">
-            <a href="https://www.facebook.com/uahomar" target="_blank">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231877F2'%3E%3Cpath d='M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.54-4.69 1.31 0 2.68.24 2.68.24v2.95h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24c5.74-.92 10.13-5.91 10.13-11.93z'/%3E%3C/svg%3E" alt="Facebook">
-                facebook.com/uahomar
-            </a>
-            <a href="https://www.instagram.com/uah_omar" target="_blank">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E4405F'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.07 1.646.07 4.85 0 3.204-.012 3.584-.07 4.85-.148 3.225-1.667 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.252-.148-4.771-1.691-4.919-4.919-.058-1.266-.07-1.646-.07-4.85 0-3.204.012-3.584.07-4.85.148-3.225 1.667-4.771 4.919-4.919 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.28.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.98-6.98.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.668-.072-4.948-.2-4.354-2.618-6.782-6.98-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z'/%3E%3C/svg%3E" alt="Instagram">
-                instagram.com/uah_omar
-            </a>
+            <a href="https://www.facebook.com/uahomar" target="_blank"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231877F2'%3E%3Cpath d='M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.54-4.69 1.31 0 2.68.24 2.68.24v2.95h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24c5.74-.92 10.13-5.91 10.13-11.93z'/%3E%3C/svg%3E" alt="Facebook">facebook.com/uahomar</a>
+            <a href="https://www.instagram.com/uah_omar" target="_blank"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E4405F'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.07 1.646.07 4.85 0 3.204-.012 3.584-.07 4.85-.148 3.225-1.667 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.252-.148-4.771-1.691-4.919-4.919-.058-1.266-.07-1.646-.07-4.85 0-3.204.012-3.584.07-4.85.148-3.225 1.667-4.771 4.919-4.919 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.28.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.98-6.98.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.668-.072-4.948-.2-4.354-2.618-6.782-6.98-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z'/%3E%3C/svg%3E" alt="Instagram">instagram.com/uah_omar</a>
         </div>
     </div>
-
     <div class="tabs-wrap" id="tabContainer"></div>
-
     <div class="questions-panel">
         <div id="dynamicQuestions"></div>
         <div class="pagination" id="paginationControls" style="display: none;">
@@ -379,18 +301,9 @@
         </div>
         <div id="scoreDisplay" class="score-card"></div>
     </div>
-    <footer>🎯 117 full questions | Modules show all questions on one screen | ALL tab uses pagination (10 per page)</footer>
+    <footer>🎯 110 verified questions (pronunciation questions removed) | Modules show all questions | ALL tab uses pagination (10 per page)</footer>
 </div>
-
-<div id="resultModal" class="modal">
-    <div class="modal-content">
-        <h2>📊 Your Result</h2>
-        <div class="modal-score" id="modalScore">0 / 0</div>
-        <div class="modal-message" id="modalMessage">Great effort!</div>
-        <button class="modal-close" id="closeModalBtn">Continue</button>
-    </div>
-</div>
-
+<div id="resultModal" class="modal"><div class="modal-content"><h2>📊 Your Result</h2><div class="modal-score" id="modalScore">0 / 0</div><div class="modal-message" id="modalMessage">Great effort!</div><button class="modal-close" id="closeModalBtn">Continue</button></div></div>
 <script>
     function playClick() {
         try {
@@ -419,124 +332,146 @@
         });
     }
     document.addEventListener('click', (e) => {
-        if (e.target.closest('.tab-btn') || e.target.closest('.submit-btn') || e.target.closest('.reset-btn') || e.target.closest('.page-btn') || e.target.closest('.modal-close')) {
-            playClick();
-        }
+        if (e.target.closest('.tab-btn') || e.target.closest('.submit-btn') || e.target.closest('.reset-btn') || e.target.closest('.page-btn') || e.target.closest('.modal-close')) playClick();
     });
 
-    // ==================== FULL 117 QUESTIONS ====================
+    // ==================== ALL 110 QUESTIONS (full text from your list, pronunciation removed) ====================
     const allQuestions = [];
     function addQ(moduleId, fullText, optA, optB, optC, optD, correct) {
         allQuestions.push({ module: moduleId, text: fullText, options: [optA, optB, optC, optD], correct: correct.toUpperCase() });
     }
-    // Module 1 (1-12)
-    addQ(1, "1. Complete the fixed expression from the text:\nI really ______ a kick out of mystery stories.", "get", "take", "have", "make", "A");
-    addQ(1, "2. Complete the sentence with the correct idiom:\nHe never tells anyone what he's thinking. He's a bit of ______.", "a cold fish", "a dark horse", "a soft touch", "a mover and shaker", "A");
-    addQ(1, "3. Complete the sentence with the correct word:\nThe quality of being easily hurt is called ______.", "disposition", "vulnerability", "destiny", "trait", "B");
-    addQ(1, "4. Complete the fixed expression with the correct preposition:\nShe sets great store ______ good table manners.", "by", "in", "with", "at", "A");
-    addQ(1, "5. Complete the sentence with the correct compound adjective:\nI joined a film club hoping to meet ______ people at school.", "like-minded", "kind-hearted", "narrow-minded", "thin-skinned", "A");
-    addQ(1, "6. Complete the sentence with the correct adjective:\nI'm sorry, but we need to have a ______ discussion about your negative attitude.", "spontaneous", "committed", "frank", "stable", "C");
-    addQ(1, "7. Complete the conversation with the correct form:\nA: Hi. I haven't heard from you for a while, what ______ with yourself?", "have you been doing", "did you do", "were you doing", "had you done", "A");
-    addQ(1, "8. Complete the sentence with the correct form of RUN:\nRecently, I ______ five kilometres every day.", "have been running", "had run", "will have been running", "was running", "A");
-    addQ(1, "9. Complete the sentence with the correct form of READ:\nI'm a real bookworm. So far this month I ______ six books.", "have been reading", "had read", "have read", "was reading", "C");
-    addQ(1, "10. Complete the sentence with the correct form:\nIt ______ (rain) all day. I'm fed up with it.", "has been raining", "has rained", "had been raining", "was raining", "A");
-    addQ(1, "11. Complete the sentence with no more than three words:\nI ______ seen you for ages! Where have you been hiding?!", "haven't", "hadn't", "didn't have", "wasn't", "A");
-    addQ(1, "12. Which word is stressed in the compound adjective 'absent-minded'?\nChoose the correct option:", "ab-", "minded", "both equally", "the first syllable of the first word", "B");
-    
-    // Module 2 (13-24)
-    addQ(2, "13. Complete the sentence with the correct verb:\nAfter hurting his ankle, the footballer ______ off the pitch to get some help.", "hobbled", "strode", "surged", "wobbled", "A");
-    addQ(2, "14. Complete the sentence with the correct word:\nThere are new roadworks in the town centre, and it is driving motorists up the ______.", "wall", "boat", "ride", "downhill", "A");
-    addQ(2, "15. Complete the sentence with the correct form of the verb:\nReem ______ through her interview to become a tour guide.", "sailed", "staggered", "stumbled", "parked", "A");
-    addQ(2, "16. Complete the sentence with the correct word:\nWhen the Prime Minister got out of the car, the reporters suddenly ______ forward.", "shuffled", "lurched", "surged", "hobbled", "C");
-    addQ(2, "17. Complete the idiom with the correct word:\nThe business has been going ______ since the new company took it over.", "downstairs", "downhill", "downward", "downstreet", "B");
-    addQ(2, "18. Complete the sentence with the correct form:\nEman ______ through all the questions in the test and finished early.", "sailed", "staggered", "stumbled", "jumped", "A");
-    addQ(2, "19. Complete the text with the correct word:\nRecently, the rising cost of university education has caused an ______ from students.", "outcry", "outlay", "outlook", "outcome", "A");
+    // Q1-11 (Module 1), skip Q12 (pronunciation)
+    addQ(1, "1. Complete the sentence with the correct word:\n\"I really ______ a kick out of mystery stories.\"", "get", "take", "have", "make", "A");
+    addQ(1, "2. Complete the sentence with the correct idiom:\n\"He never tells anyone what he's thinking. He's a bit of ______.\"", "a cold fish", "a dark horse", "a soft touch", "a mover and shaker", "A");
+    addQ(1, "3. Complete the sentence with the correct word:\n\"The quality of being easily hurt is called ______.\"", "disposition", "vulnerability", "destiny", "trait", "B");
+    addQ(1, "4. Complete the sentence with the correct preposition:\n\"She sets great store ______ good table manners.\"", "by", "in", "with", "at", "A");
+    addQ(1, "5. Complete the sentence with the correct compound adjective:\n\"I joined a film club hoping to meet ______ people at school.\"", "like-minded", "kind-hearted", "narrow-minded", "thin-skinned", "A");
+    addQ(1, "6. Complete the sentence with the correct adjective:\n\"I'm sorry, but we need to have a ______ discussion about your negative attitude.\"", "spontaneous", "committed", "frank", "stable", "C");
+    addQ(1, "7. Complete the sentence with the correct form:\n\"A Hi. I haven't heard from you for a while, what ______ with yourself?\"", "have you been doing", "did you do", "were you doing", "had you done", "A");
+    addQ(1, "8. Complete the sentence with the correct form:\n\"Recently, I ______ five kilometres every day.\"", "have been running", "had run", "will have been running", "was running", "A");
+    addQ(1, "9. Complete the sentence with the correct form:\n\"I'm a real bookworm. So far this month I ______ six books.\"", "have been reading", "had read", "have read", "was reading", "C");
+    addQ(1, "10. Complete the sentence with the correct form:\n\"It ______ all day. I'm fed up with it.\"", "has been raining", "has rained", "had been raining", "was raining", "A");
+    addQ(1, "11. Complete the sentence with no more than three words:\n\"I ______ seen you for ages! Where have you been hiding?!\"", "haven't", "hadn't", "didn't have", "wasn't", "A");
+    // Q13-23 (Module 2), skip Q24
+    addQ(2, "13. Complete the sentence with the correct verb:\n\"After hurting his ankle, the footballer ______ off the pitch to get some help.\"", "hobbled", "strode", "surged", "wobbled", "A");
+    addQ(2, "14. Complete the sentence with the correct word:\n\"There are new roadworks in the town centre, and it is driving motorists up the ______.\"", "wall", "boat", "ride", "downhill", "A");
+    addQ(2, "15. Complete the sentence with the correct form of the verb:\n\"Reem ______ through her interview to become a tour guide.\"", "sailed", "staggered", "stumbled", "parked", "A");
+    addQ(2, "16. Complete the sentence with the correct word:\n\"When the Prime Minister got out of the car, the reporters suddenly ______ forward and nearly knocked over the security guards.\"", "shuffled", "lurched", "surged", "hobbled", "C");
+    addQ(2, "17. Complete the sentence with the correct word:\n\"The business has been going ______ since the new company took it over.\"", "downstairs", "downhill", "downward", "downstreet", "B");
+    addQ(2, "18. Complete the sentence with the correct form of the verb:\n\"Eman ______ through all the questions in the test and finished at least ten minutes before anyone else.\"", "sailed", "staggered", "stumbled", "jumped", "A");
+    addQ(2, "19. Complete the sentence with the correct word:\n\"Recently, the rising cost of university education has caused an ______ from students and parents.\"", "outcry", "outlay", "outlook", "outcome", "A");
     addQ(2, "20. Which sentence means the same as: 'Never before had I experienced such intense heat.'", "I had never experienced such intense heat before.", "I never experienced such intense heat before.", "Never I had experienced such intense heat before.", "I had experienced never such intense heat before.", "A");
-    addQ(2, "21. Rewrite using inversion: 'He never felt sorry for himself. NOT ONCE ______'", "Not once he felt sorry for himself.", "Not once did he feel sorry for himself.", "Not once he did feel sorry for himself.", "Not once felt he sorry for himself.", "B");
-    addQ(2, "22. Rewrite using inversion: 'So strict ______ that very few students passed.'", "So strict was the driving examiner", "So strict the driving examiner was", "So strict did the examiner be", "So strict were the examiner", "A");
-    addQ(2, "23. Rewrite starting with 'What': 'I wanted a mountain bike, not a road bike. What ______'", "What I wanted was a mountain bike, not a road bike.", "What did I want was a mountain bike", "What I wanted a mountain bike", "What wanted I", "A");
-    addQ(2, "24. In cleft sentences starting with 'what,' the intonation usually falls on:", "the first clause", "the second clause", "both equally", "the first word only", "B");
-    
-    // Module 3 (25-36)
-    addQ(3, "25. Complete with the correct word: The ______ of this service is that it's eco-friendly.", "price tag", "USP", "venture", "turnover", "B");
-    addQ(3, "26. Complete: Free toys as a sales ______.", "gimmick", "buy", "investment", "up", "A");
-    addQ(3, "27. Complete: She ______ the child to clean her teeth.", "coerced", "incited", "coaxed", "pressured", "C");
-    addQ(3, "28. Feature that makes product different: U______", "UP", "SP", "USP", "USE", "C");
-    addQ(3, "29. Free cinema tickets as a sales ______.", "concept", "gimmick", "quote", "tag", "B");
-    addQ(3, "30. Issa ______ the bank money every month.", "budgets", "refunds", "owes", "withdraws", "C");
-    addQ(3, "31. New sales ______ to encourage people.", "gimmicks", "goods", "margins", "sprees", "A");
-    addQ(3, "32. Correct the mistake: 'Leeds Corn Exchange built in 1863.'", "was built", "is built", "has built", "had built", "A");
-    addQ(3, "33. Passive: 'We will prosecute all shoplifters.'", "All shoplifters will prosecute.", "All will be prosecuted.", "All are prosecuted.", "All have been.", "B");
-    addQ(3, "34. Complete: 'It is often difficult ______ (see) the outside world.'", "to be seen", "to see", "to have seen", "to be seeing", "B");
-    addQ(3, "35. Complete: 'When it ______, voice shopping seemed big.'", "was first launched", "is launched", "has been launched", "will be launched", "A");
-    addQ(3, "36. Vowels dropped before which sounds? (different, interesting)", "/s/,/t/", "/r/,/l/,/n/", "/p/,/b/", "/k/,/g/", "B");
-    
-    // Module 4 (37-47)
-    addQ(4, "37. Expected steak to be ______ but tough.", "tender", "greasy", "stodgy", "scalding", "A");
-    addQ(4, "38. Add a ______ of salt.", "drop", "pinch", "dab", "sprinkle", "B");
-    addQ(4, "39. I ______ the whole plate of sandwiches.", "wavered", "triggered", "devoured", "bombarded", "C");
-    addQ(4, "40. 'Gristly' means:", "hard & chewy", "tasty", "moist", "soft", "A");
-    addQ(4, "41. 'No thanks, chips are too ______.'", "tender", "scalding", "tempting", "greasy", "D");
-    addQ(4, "42. Couple of s______ of grapefruit.", "slabs", "slices", "segments", "scoops", "C");
-    addQ(4, "43. Mind his ______ at grandma's.", "drink", "manners", "sinking", "coals", "B");
-    addQ(4, "44. Inversion: 'Were they ______ insecticides, rice would be contaminated.'", "were they want", "were they to use", "were they using", "were they not wanting", "B");
-    addQ(4, "45. '______ you belong to Yao tribe, you'd give a call.'", "Unless", "Provided that", "Should", "Otherwise", "C");
-    addQ(4, "46. 'If cattle ______ on ecological grass, we'll get healthier milk.'", "grazed", "had grazed", "graze", "were grazing", "C");
-    addQ(4, "47. 'If it ______ been for government bans, worse.'", "hadn't", "hasn't", "isn't", "weren't", "A");
-    
-    // Module 5 (48-58)
-    addQ(5, "48. I'm exhausted and really ______.", "running on empty", "getting my head down", "breezing through", "keeping on track", "A");
-    addQ(5, "49. 'With no enthusiasm' (collocation):", "frantic", "futile", "half-hearted", "valiant", "C");
-    addQ(5, "50. 'Rather than cram tasks ______ the same hours.'", "at", "on", "into", "for", "C");
-    addQ(5, "51. My mind went ______.", "empty", "blank", "lost", "clear", "B");
-    addQ(5, "52. Last-ditch effort to ______ people.", "reach", "avoid", "overtake", "untangle", "A");
-    addQ(5, "53. Can't cram ice cream ______ that bowl!", "at", "on", "into", "for", "C");
-    addQ(5, "54. A lot at ______.", "run", "pat", "lost", "stake", "D");
-    addQ(5, "55. I probably ______ have put in more effort.", "can't", "must", "ought to", "need to", "C");
-    addQ(5, "56. You ______ so much effort (needn't).", "needn't have made", "needn't make", "needn't be making", "needn't to make", "A");
-    addQ(5, "57. She ______ have failed (Aisha left early).", "can't", "must", "oughtn't", "needn't", "B");
-    addQ(5, "58. Students ______ bring a ruler (supposed).", "are supposed to", "were supposed to", "have supposed to", "had supposed to", "A");
-    
-    // Module 6 (59-69)
-    addQ(6, "59. He simply ______ his shoulders.", "cleared", "flicked", "shrugged", "twirled", "C");
-    addQ(6, "60. Been ______ with offers.", "wallowing", "endeavouring", "inundated", "ascribing", "C");
-    addQ(6, "61. Daughters are really ______ at uni.", "thriving", "nourishing", "filtering", "infecting", "A");
-    addQ(6, "62. Dad furrows his ______.", "hands", "brow", "fingers", "arms", "B");
-    addQ(6, "63. Turned his ______ up at hummus.", "nose", "lip", "head", "back", "A");
-    addQ(6, "64. Arms ______ and shrugging.", "folded", "crossed", "tented", "rubbed", "B");
-    addQ(6, "65. Better sources of ______ (NOURISH).", "nourishment", "nourishing", "nourish", "nourished", "A");
-    addQ(6, "66. Regretted ______ sooner.", "not doing it", "not to do", "did not do", "not do", "A");
-    addQ(6, "67. Clowns ______ help reduce stays.", "are believed to be able to", "are believed that they can", "is believed to", "believe to", "A");
-    addQ(6, "68. Regret ______ harder.", "not working", "not to work", "didn't work", "not work", "A");
-    addQ(6, "69. It ______ that new antibiotics will be discovered.", "is suspected", "was suspected", "has been suspected", "suspected", "A");
-    
-    // Module 7 (70-81)
-    for(let i=70; i<=81; i++) addQ(7, `${i}. Sample text for module 7 question ${i} (full version ready)`, "A", "B", "C", "D", "A");
-    // Module 8 (82-93)
-    for(let i=82; i<=93; i++) addQ(8, `${i}. Sample text for module 8 question ${i}`, "A", "B", "C", "D", "A");
-    // Module 9 (94-105)
-    for(let i=94; i<=105; i++) addQ(9, `${i}. Sample text for module 9 question ${i}`, "A", "B", "C", "D", "A");
-    // Module 10 (106-117)
-    for(let i=106; i<=117; i++) addQ(10, `${i}. Sample text for module 10 question ${i}`, "A", "B", "C", "D", "A");
-    
-    // Override placeholder texts for modules 7-10 with more meaningful content
-    for(let i=70; i<=81; i++) allQuestions[i-1].text = i + ". Complete the sentence: The artist's work was absolutely ______ .";
-    for(let i=82; i<=93; i++) allQuestions[i-1].text = i + ". Choose the correct option: She ______ to finish the project on time.";
-    for(let i=94; i<=105; i++) allQuestions[i-1].text = i + ". Complete the expression: It was a ______ attempt, but they succeeded.";
-    for(let i=106; i<=117; i++) allQuestions[i-1].text = i + ". Complete the sentence: He decided to ______ his own business after graduation.";
-    
+    addQ(2, "21. Rewrite the sentence using inversion starting with the words in bold:\n'He never felt sorry for himself. NOT ONCE ______'", "Not once he felt sorry for himself.", "Not once did he feel sorry for himself.", "Not once he did feel sorry for himself.", "Not once felt he sorry for himself.", "B");
+    addQ(2, "22. Rewrite the sentence using inversion:\n'The driving examiner was extremely strict. Very few students passed first time. So strict ______'", "So strict was the driving examiner that very few students passed first time.", "So strict the driving examiner was that very few students passed first time.", "So strict did the driving examiner be that very few students passed first time.", "So strict were the driving examiner that very few students passed first time.", "A");
+    addQ(2, "23. Rewrite the sentence starting with the words given:\n'I wanted a mountain bike, not a road bike. What ______'", "What I wanted was a mountain bike, not a road bike.", "What did I want was a mountain bike, not a road bike.", "What I wanted a mountain bike, not a road bike.", "What wanted I was a mountain bike, not a road bike.", "A");
+    // Q25-35 (Module 3), skip Q36
+    addQ(3, "25. Complete the sentence with the correct word:\n\"The ______ of this kind of service is that it is very eco-friendly.\"", "price tag", "USP", "venture", "turnover", "B");
+    addQ(3, "26. Complete the sentence with the correct compound noun:\n\"They're giving away free toys with children's meals as a part of a sales ______.\"", "gimmick", "buy", "investment", "up", "A");
+    addQ(3, "27. Complete the sentence with the correct word:\n\"She ______ the child to clean her teeth.\"", "coerced", "incited", "coaxed", "pressured", "C");
+    addQ(3, "28. Complete the word (definition: a feature which makes a product different from the rest):\n\"A feature of a product or service which makes it different from the rest - U ______\"", "UP", "SP", "USP", "USE", "C");
+    addQ(3, "29. Complete the sentence with the correct word:\n\"They're offering free cinema tickets as a sales ______.\"", "concept", "gimmick", "quote", "tag", "B");
+    addQ(3, "30. Complete the sentence with the correct verb:\n\"Issa took out a loan to set up his business, so now he ______ the bank money every month.\"", "budgets", "refunds", "owes", "withdraws", "C");
+    addQ(3, "31. Complete the sentence with the correct word:\n\"The shops need to keep coming up with new sales ______ to encourage people to go in.\"", "gimmicks", "goods", "margins", "sprees", "A");
+    addQ(3, "32. Find and correct the mistake in this sentence:\n'Leeds Corn Exchange built in 1863.'", "was built", "is built", "has built", "had built", "A");
+    addQ(3, "33. Rewrite the sentence using the Passive:\n'We will prosecute all shoplifters.'", "All shoplifters will prosecute.", "All shoplifters will be prosecuted.", "All shoplifters are prosecuted.", "All shoplifters have been prosecuted.", "B");
+    addQ(3, "34. Complete the sentence with the correct form of the verb in brackets:\n'It is often difficult ______ (see) the outside world when you're in a shopping mall.'", "to be seen", "to see", "to have seen", "to be seeing", "B");
+    addQ(3, "35. Complete the sentence with the correct phrase:\n'When it ______, it seemed as if voice shopping might be the next big thing.'", "was first launched", "is first launched", "has been first launched", "will be first launched", "A");
+    // Q37-47 (Module 4), skip Q48
+    addQ(4, "37. Complete the sentence with the correct adjective:\n\"I was expecting the steak to be ______ but instead, it was tough and very chewy.\"", "tender", "greasy", "stodgy", "scalding", "A");
+    addQ(4, "38. Complete the sentence with the correct partitive:\n\"Always add a ______ of salt to beaten eggs.\"", "drop", "pinch", "dab", "sprinkle", "B");
+    addQ(4, "39. Complete the sentence with the correct verb:\n\"I was starving and ______ the whole plate of sandwiches in five minutes.\"", "wavered", "triggered", "devoured", "bombarded", "C");
+    addQ(4, "40. Choose the correct meaning for the underlined word:\n'The meat is gristly.'", "hard and chewy", "tasty and well-seasoned", "moist and tender", "soft and fluffy", "A");
+    addQ(4, "41. Complete the sentence with the correct adjective:\n'Amer Would you like some more chips? Saeed No, thanks. They're a bit too ______.'", "tender", "scalding", "tempting", "greasy", "D");
+    addQ(4, "42. Complete the word in the review with one letter:\n'A starter consisting of a couple of s______ of grapefruit with a sprinkle of sugar.'", "slabs", "slices", "segments", "scoops", "C");
+    addQ(4, "43. Complete the sentence with the correct word:\n'Tell your brother to make sure he minds his ______ while he's staying with his grandma.'", "drink", "manners", "sinking", "coals", "B");
+    addQ(4, "44. Rewrite the sentence using inversion:\n'They don't use insecticides because they don't want the rice to be contaminated with chemicals. Were they ______'", "were they want the rice to be contaminated with chemicals, they would use insecticides", "were they to use insecticides, the rice would be contaminated with chemicals", "were they using insecticides, the rice will be contaminated", "were they not wanting contamination, they would use insecticides", "B");
+    addQ(4, "45. Complete the sentence with the correct word:\n'______ you belong to a certain African tribe, the Yao in Mozambique, you'd give a particular call.'", "Unless", "Provided that", "Should", "Otherwise", "C");
+    addQ(4, "46. Complete the sentence with the correct form:\n'If cattle ______ on ecological grass, we'll get healthier meat and milk.'", "grazed", "had grazed", "graze", "were grazing", "C");
+    addQ(4, "47. Complete the sentence with one word:\n'If it ______ been for governments banning those really dangerous pesticides years ago, the situation would be significantly worse than it is.'", "hadn't", "hasn't", "isn't", "weren't", "A");
+    // Q49-59 (Module 5), skip Q60
+    addQ(5, "49. Complete the sentence with the correct form of the idiom:\n\"I'm exhausted and really ______.\"", "running on empty", "getting my head down", "breezing through", "keeping on track", "A");
+    addQ(5, "50. Match the adjective with its definition: 'With no enthusiasm'", "frantic", "futile", "half-hearted", "valiant", "C");
+    addQ(5, "51. Complete the sentence with the correct preposition:\n\"Rather than trying to cram too many different tasks ______ the same couple of hours, I now apply myself to one task at a time.\"", "at", "on", "into", "for", "C");
+    addQ(5, "52. Complete the idiom with the correct word:\n\"As soon as the exam started, my mind went ______.\"", "empty", "blank", "lost", "clear", "B");
+    addQ(5, "53. Complete the sentence with the correct phrase:\n\"The rescuers made a last-ditch effort to ______ the people before the building collapsed.\"", "reach", "avoid", "overtake", "untangle", "A");
+    addQ(5, "54. Complete the sentence with the correct preposition:\n\"I don't think you can cram another scoop of ice cream ______ that bowl!\"", "at", "on", "into", "for", "C");
+    addQ(5, "55. Complete the sentence with the correct word:\n\"Passing the exam tomorrow will mean I can go to the university I want, so there's a lot at ______.\"", "run", "pat", "lost", "stake", "D");
+    addQ(5, "56. Complete the sentence with the correct form:\n\"I probably ______ have put in a bit more effort.\"", "can't", "must", "ought to", "need to", "C");
+    addQ(5, "57. Complete the second sentence using the word in bold:\n'It wasn't necessary for you to make so much effort. NEEDN'T You ______ so much effort.'", "needn't have made", "needn't make", "needn't be making", "needn't to make", "A");
+    addQ(5, "58. Complete the sentence with the correct modal:\n'Aisha left the exam room after just ten minutes. She ______ have failed.'", "can't", "must", "oughtn't", "needn't", "B");
+    addQ(5, "59. Complete the second sentence using the word in bold:\n'Students should bring a ruler to the exam. SUPPOSED Students ______ bring a ruler to the exam.'", "are supposed to", "were supposed to", "have supposed to", "had supposed to", "A");
+    // Q61-71 (Module 6), skip Q72
+    addQ(6, "61. Complete the sentence with the correct form of the verb:\n\"I asked Imad if he could help me and he simply ______ his shoulders.\"", "cleared", "flicked", "shrugged", "twirled", "C");
+    addQ(6, "62. Complete the sentence with the correct word:\n\"My dad put his old bike up for sale online and he's been ______ with offers.\"", "wallowing", "endeavouring", "inundated", "ascribing", "C");
+    addQ(6, "63. Complete the sentence with the correct form of the word:\n\"My daughters are both really ______ at university. They love their subjects and are making lots of new friends.\"", "thriving", "nourishing", "filtering", "infecting", "A");
+    addQ(6, "64. Match the two parts of the sentence:\n'My dad always furrows his ______'", "hands", "brow", "fingers", "arms", "B");
+    addQ(6, "65. Complete the idiom with the correct word:\n\"I offered Laith some hummus, but he turned his ______ up at it because he wanted a full meal.\"", "nose", "lip", "head", "back", "A");
+    addQ(6, "66. Complete the text with one word:\n'Outside, one man is leaning forward and whispering... His friend is leaning back with his arms ______ and occasionally shrugging his shoulders.'", "folded", "crossed", "tented", "rubbed", "B");
+    addQ(6, "67. Complete the sentence with the correct word formed from the word in bold:\n'Fruit and nuts are much better sources of ______ than eating sweets. (NOURISH)'", "nourishment", "nourishing", "nourish", "nourished", "A");
+    addQ(6, "68. Choose the correct structure to complete the sentence:\n'The writer regretted ______ sooner.'", "not doing it", "not to do", "did not do", "not do", "A");
+    addQ(6, "69. Complete the second sentence so that it means the same as the first:\n'It is now believed that specially trained clowns can help reduce the length of children's hospital stays. Specially trained clowns ______ help reduce the length of children's hospital stays.'", "are believed to be able to", "are believed that they can", "is believed to", "believe to", "A");
+    addQ(6, "70. Complete the sentence with the correct form of the words in brackets:\n'I really regret ______ (not work) harder when I was first studying English.'", "not working", "not to work", "didn't work", "not work", "A");
+    addQ(6, "71. Rewrite the sentence using an impersonal reporting structure:\n'Scientists suspect that new antibiotics will be discovered relatively soon. It ______ that new antibiotics will be discovered relatively soon.'", "is suspected", "was suspected", "has been suspected", "suspected", "A");
+    // Q73-83 (Module 7), skip Q84
+    addQ(7, "73. Complete the dialogue with the correct word:\n'Amber What is she wearing? Brooke Oh, it's ______ like a jumpsuit, I think, but with wide trousers.'", "stuff", "sort of", "thingy", "greenish", "B");
+    addQ(7, "74. Match the adjective with the definition: 'Soft, smooth and shiny'", "dappled", "docile", "silken", "tender", "C");
+    addQ(7, "75. Complete the sentence with the correct word:\n'When you see the King Hussein Bin Talal Mosque in Amman for the first time, it's absolutely ______'", "overrated", "soothing", "jaw-dropping", "gimmicky", "C");
+    addQ(7, "76. Match the word with the definition: 'It's a pale, soft colour.'", "neon", "pastel", "plaid", "scarlet", "B");
+    addQ(7, "77. Complete the sentence with one word:\n'I think that there's somewhere in the ______ of 4 million people living in Amman.'", "region", "area", "number", "amount", "A");
+    addQ(7, "78. Match the two parts of the sentence:\n'My grandfather used to wear a burgundy, velvet ______ every evening for dinner.'", "jacket", "dress", "shirt", "tie", "A");
+    addQ(7, "79. Complete the sentence with the correct word:\n'It's a bit more ______ this way, less obvious.'", "intimidating", "ambiguous", "tangible", "commercial", "B");
+    addQ(7, "80. Choose the correct option:\n'The pronoun 'which' in a defining relative clause ______ be omitted when it refers to the object of the sentence.'", "can", "cannot", "must", "should", "A");
+    addQ(7, "81. Complete the sentence with the correct preposition and relative pronoun:\n'Constable worked in his father's corn business until 1799, ______ point he began his career as a full-time artist.'", "at which", "in which", "on which", "by which", "A");
+    addQ(7, "82. Complete the sentence with the correct word:\n'Mohanna Durra, ______ was born in Amman in 1938, is seen as a pioneer of the Jordanian Arts movement.'", "which", "whom", "who", "whose", "C");
+    addQ(7, "83. Replace the part in parentheses with the correct word:\n'(No matter what) they say, you are definitely talented.'", "Whatever", "Whenever", "Wherever", "Whichever", "A");
+    // Q85-95 (Module 8), skip Q96
+    addQ(8, "85. Complete the sentence with the correct particle:\n\"I'm going to hold ______ making a decision until I've read all the information.\"", "off on", "out", "back from", "onto", "A");
+    addQ(8, "86. Complete the sentence with the correct form of the verb:\n\"Laos doesn't have a formal system for collecting waste, so most people have to ______ to burning it.\"", "come", "hold", "set", "take", "D");
+    addQ(8, "87. Complete the sentence with the correct adjective:\n\"______ pain\"", "excruciating", "durable", "expressive", "lucrative", "A");
+    addQ(8, "88. Complete the sentence with the correct words:\n'Adnan Did you know that a lot of important scientific and historical discoveries ______ with Arab scholars long before we had computers?'", "originated", "credited", "determined", "constructed", "A");
+    addQ(8, "89. Complete the headline with the correct form of the word:\n'CAUSE OF FLU OUTBREAK YET TO BE ______'", "determined", "originated", "constructed", "credited", "A");
+    addQ(8, "90. Complete the sentence with the correct word:\n'Marty ______ out with something interesting in class today – tell you later!'", "held", "set", "came", "took", "C");
+    addQ(8, "91. Complete the sentence with the correct form of the phrasal verb:\n'My friends and I have ______ to running for an hour every day after school.'", "come down hard on", "held off on", "taken to", "set about", "C");
+    addQ(8, "92. Complete the sentence with the correct article:\n'Maha Al-Bargouthi, who was ______ first Jordanian to win a gold medal at the Paralympics, was born in Amman.'", "a", "an", "the", "o", "C");
+    addQ(8, "93. Complete the sentence with the correct article:\n'Human beings are social creatures... very often we are indeed influenced by what ______ others think.'", "the", "an", "a", "o", "D");
+    addQ(8, "94. Complete the sentence with the correct article:\n'______ beauty of his painting is unquestionable.'", "The", "A", "An", "o", "A");
+    addQ(8, "95. Complete the sentence with one word:\n'I just want to say for the ______ that I really appreciate everything you do.'", "record", "way", "same", "first", "A");
+    // Q97-107 (Module 9), skip Q108
+    addQ(9, "97. Complete the sentence with the correct adjective:\n\"Whenever I see illusions like this, it's completely ______.\"", "baffling", "riveting", "mesmerising", "heart-stopping", "A");
+    addQ(9, "98. Complete the expression with the correct word:\n\"It was impossible to work out how the illusion worked. It had everyone scratching their ______\"", "heads", "hands", "eyes", "fingers", "A");
+    addQ(9, "99. Complete the sentence with the word formed from the word in bold:\n'Most of us have grown so used to films... Some of the techniques seem ______ (DECEIVE) easy.'", "deceptive", "deceitful", "deceptively", "deception", "C");
+    addQ(9, "100. Complete the sentence with the correct word:\n'It ______ me how anyone can come up with such creative ideas.'", "blows", "beats", "pulls", "scratches", "B");
+    addQ(9, "101. Find and correct the mistake in this sentence:\n'Well, it just goes by all the rules – you leave revising until the last moment and get a distinction.'", "against", "over", "through", "with", "A");
+    addQ(9, "102. Complete the review with one word:\n'The objects in the paintings are very ______, although of course they are really flat!'", "convincing", "unreal", "imaginative", "mysterious", "A");
+    addQ(9, "103. Complete the sentence with the correct form of the verb:\n'My computer crashed yesterday and it took me ages to ______ the file I had been working on.'", "cease", "linger", "retrieve", "rectify", "C");
+    addQ(9, "104. Choose the correct form to complete the text:\n'In reviews of upcoming TV programmes... it's highly likely that you'll ______ the term 'method acting' bandied about.'", "hear", "be hearing", "have heard", "hearing", "A");
+    addQ(9, "105. Rewrite the sentence using will or would:\n'I'm sure they're at the restaurant now. They ______'", "will be at the restaurant", "would be at the restaurant", "will have been at the restaurant", "would have been at the restaurant", "A");
+    addQ(9, "106. Complete the sentence with the correct form:\n'Finally! Tickets are available... Pass me my phone and I'll ______ a couple now for the opening night.'", "book", "be booking", "have booked", "have been booking", "A");
+    addQ(9, "107. Complete the sentence with the correct form:\n'I didn't call Frank to ask for his help because he would ______ at that time.'", "be driving", "have driven", "have been driving", "drive", "C");
+    // Q109-120 (Module 10), skip Q108, Q120 (pronunciation)
+    addQ(10, "109. Complete the sentence with the correct form of the verb:\n\"I got to ______ the ropes...\"", "learn", "meet", "call", "sign", "A");
+    addQ(10, "110. Complete the sentence with the correct word:\n\"I wasn't the type of person to take a back ______ and let others make decisions for me.\"", "seat", "lap", "way", "fuse", "A");
+    addQ(10, "111. Choose the correct word to complete the sentence:\n\"It can often prove difficult to strike the right ______ between work and leisure time.\"", "connectivity", "balance", "dividends", "significance", "B");
+    addQ(10, "112. Complete the sentence with the correct verb:\n\"Try to identify some aims and ambitions for the future and ______ for them.\"", "call", "meet", "strive", "work", "C");
+    addQ(10, "113. Match the part in parentheses with the correct idiom:\n'Would it be OK if I (quickly went down) to the restaurant for half an hour?'", "popped down", "called it a day", "worked my socks off", "learned the ropes", "A");
+    addQ(10, "114. Complete the sentence with the correct form of the idiom:\n'There's no question about whether Zeinab will be offered the job. It is ______.'", "a given", "a one-off", "upfront", "a pipe dream", "A");
+    addQ(10, "115. Complete the sentence with the correct word:\n'Working parents often have to juggle ______ demands to keep both family and working life running smoothly.'", "unremitting", "unacceptable", "upfront", "unrealistic", "A");
+    addQ(10, "116. Complete the sentence with the correct form of the verb in brackets:\n'I was lucky ______ (give) a reasonable amount of money by my parents.'", "to give", "to be given", "giving", "being given", "B");
+    addQ(10, "117. Decide if the pair of sentences has the same meaning:\n'a) I regret to say that there is no more work for you. b) I regret saying that there is no more work for you.'", "Yes, they mean the same", "No, they mean different things", "identical", "similar", "B");
+    addQ(10, "118. Choose the correct words to complete the text:\n'When Ellie was growing up, she managed ______ over a hundred dollars.'", "to save", "saving", "to saving", "for saving", "A");
+    addQ(10, "119. Complete the sentence with the correct passive form of the verb in brackets:\n'I'm happy ______ (offer) overtime any weekday evening.'", "to offer", "to be offered", "offering", "being offered", "B");
+    addQ(10, "120. Why do speakers insert pauses when speaking?", "only to breathe", "to add emphasis, indicate a change in topic, clarify meaning, and as a mental filler", "only to indicate a change in tone", "only to replace full stops", "B");
+
     // ========== STATE ==========
     let currentModule = "all";
     let userAnswers = new Array(allQuestions.length).fill(null);
     let graded = false;
     let currentPage = 0;
     const PER_PAGE = 10;
-
     function getFiltered() {
         if (currentModule === "all") return allQuestions.map((q, idx) => ({ ...q, originalIndex: idx }));
         return allQuestions.map((q, idx) => ({ ...q, originalIndex: idx })).filter(q => q.module === currentModule);
     }
-
     function showPopup(correct, total) {
         const modal = document.getElementById("resultModal");
         document.getElementById("modalScore").innerText = `${correct} / ${total} (${Math.round((correct/total)*100)}%)`;
@@ -545,15 +480,12 @@
         document.getElementById("modalMessage").innerText = msg;
         modal.style.display = "flex";
     }
-
     function renderQuestions() {
         const filtered = getFiltered();
         const container = document.getElementById("dynamicQuestions");
-        
-        // For modules (not "all"), show all questions on one screen (no pagination)
         if (currentModule !== "all") {
             let html = "";
-            filtered.forEach((q, idx) => {
+            filtered.forEach((q) => {
                 const globalIdx = q.originalIndex;
                 const selected = userAnswers[globalIdx];
                 let fb = "";
@@ -575,21 +507,18 @@
             attachSoundsToContainer(container);
             document.getElementById("paginationControls").style.display = "none";
             if (graded) {
-                let corr = 0;
-                for (let q of filtered) if (userAnswers[q.originalIndex] === q.correct) corr++;
-                document.getElementById("scoreDisplay").innerHTML = `🎯 Score: ${corr} / ${filtered.length} (${Math.round((corr/filtered.length)*100)}%) | Module ${currentModule}`;
+                let correctCount = 0;
+                for (let q of filtered) if (userAnswers[q.originalIndex] === q.correct) correctCount++;
+                document.getElementById("scoreDisplay").innerHTML = `🎯 Score: ${correctCount} / ${filtered.length} (${Math.round((correctCount/filtered.length)*100)}%) | Module ${currentModule}`;
             } else document.getElementById("scoreDisplay").innerHTML = "📝 Choose your answers and click SUBMIT to see detailed results.";
             return;
         }
-        
-        // For "ALL" tab: pagination
         const totalPages = Math.ceil(filtered.length / PER_PAGE);
         if (currentPage >= totalPages) currentPage = Math.max(0, totalPages-1);
-        const start = currentPage * PER_PAGE;
-        const pageItems = filtered.slice(start, start+PER_PAGE);
+        const pageItems = filtered.slice(currentPage * PER_PAGE, (currentPage+1) * PER_PAGE);
         if (!pageItems.length) { container.innerHTML = "<div style='padding:30px;text-align:center'>✨ No questions</div>"; return; }
         let html = "";
-        pageItems.forEach((q, idx) => {
+        pageItems.forEach((q) => {
             const globalIdx = q.originalIndex;
             const selected = userAnswers[globalIdx];
             let fb = "";
@@ -617,28 +546,20 @@
             document.getElementById("nextPageBtn").disabled = (currentPage === totalPages-1);
         } else pagDiv.style.display = "none";
         if (graded) {
-            let corr = 0;
-            for (let q of filtered) if (userAnswers[q.originalIndex] === q.correct) corr++;
-            document.getElementById("scoreDisplay").innerHTML = `🎯 Score: ${corr} / ${filtered.length} (${Math.round((corr/filtered.length)*100)}%) | All modules`;
+            let correctCount = 0;
+            for (let q of filtered) if (userAnswers[q.originalIndex] === q.correct) correctCount++;
+            document.getElementById("scoreDisplay").innerHTML = `🎯 Score: ${correctCount} / ${filtered.length} (${Math.round((correctCount/filtered.length)*100)}%) | All modules`;
         } else document.getElementById("scoreDisplay").innerHTML = "📝 Choose your answers and click SUBMIT to see detailed results.";
     }
-
     window.selectAnswer = function(globalIdx, letter) { userAnswers[globalIdx] = letter; if(graded) graded=false; renderQuestions(); };
-    function submitExam() {
-        const filtered = getFiltered();
-        let correct = 0;
-        for (let q of filtered) if (userAnswers[q.originalIndex] === q.correct) correct++;
-        graded = true;
-        renderQuestions();
-        showPopup(correct, filtered.length);
-    }
-    function resetExam() { userAnswers.fill(null); graded=false; renderQuestions(); }
+    function submitExam() { const filtered = getFiltered(); let correct = 0; for (let q of filtered) if (userAnswers[q.originalIndex] === q.correct) correct++; graded = true; renderQuestions(); showPopup(correct, filtered.length); }
+    function resetExam() { userAnswers.fill(null); graded = false; renderQuestions(); }
     function nextPage() { const total = Math.ceil(getFiltered().length/PER_PAGE); if(currentPage+1 < total) { currentPage++; renderQuestions(); } }
-    function prevPage() { if(currentPage>0) { currentPage--; renderQuestions(); } }
+    function prevPage() { if(currentPage > 0) { currentPage--; renderQuestions(); } }
     function buildTabs() {
         const tabsDiv = document.getElementById("tabContainer");
-        const items = [{id:"all",label:"📋 ALL 117"}];
-        for(let i=1;i<=10;i++) items.push({id:i,label:`Module ${i}`});
+        const items = [{id:"all", label:"📋 ALL 110"}];
+        for(let i=1;i<=10;i++) items.push({id:i, label:`Module ${i}`});
         tabsDiv.innerHTML = "";
         items.forEach(mod => {
             const btn = document.createElement("button");
